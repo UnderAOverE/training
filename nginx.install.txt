@@ -1,0 +1,88 @@
+30  yum install epel-release
+   31  yum install nginx
+   32  ps -ef | grep nginx
+   33  pwd
+   34  ls -lrt
+   35  mkdir nginx
+   36  cd nginx/
+   37  ls -lrt
+   38  view start
+   39  ls -lrt
+   40  view stop
+   41  chmod 700 *
+   42  ./start 
+   43  ls -lrt /usr/share/nginx/
+   44  ls -lrt /etc/nginx/
+   45  service nginx status
+   46  ls -lrt
+   47  cd nginx/
+   48  ls -lrt
+   49  ./stop 
+   50  service nginx status
+   51  ./start 
+   52  nginx -V
+   53  wget
+   54  yum install wget
+   55  pwd
+   56  cd /
+   57  ls -lrt
+   58  mkdir sites
+   59  ls -lrt
+   60  cd sites
+   61  ls -lrt
+   62  cd /etc/nginx/
+   63  ls -lrt
+   64  cp -p nginx.conf nginx.conf.bak
+   65  view nginx.conf
+   66  service nginx reload
+   67  cd /
+   68  ls -lrt
+   69  ps -ef | grep nginx
+   70  id nginx
+   71  cd /
+   72  chmod -R nginx:nginx sites
+   73  chown -R nginx:nginx sites
+   74  ls -lrt
+   75  service nginx reload
+   76  service nginx stop
+   77  service nginx start
+   78  cd /var/log
+   79  ls -lrt
+   80  cd -
+   81  ls -lrt
+   82  cd /etc/nginx/
+   83  ls -lrt
+   84  view nginx.conf.bak 
+   85  cd /var/log/nginx/
+   86  ls -lrt
+   87  view error.log 
+   88  cd /sites
+   89  cd bootstrap/
+   90  ls -lrt
+   91  chmod 777 index.html 
+   92  view /var/log/nginx/*
+   93  tail -f /var/log/nginx/error.log 
+   94  cd /
+   95   chmod o+x sites/
+   96  ls -lrt
+   97  cd sites/
+   98  ls -lrt
+   99   chmod o+x bootstrap/
+  100  ls -lrt
+  101  cd bootstrap/
+  102  ls -lrt
+  103   chmod -R o+x *
+  104  ls -lrt
+  105  service nginx restart
+  106  chmod -4 +x /sites
+  107  getenforce
+  108  setenforce Permissive
+  109  service nginx restart
+  110  pwd
+  111  cd /etc/nginx/
+  112  ls -lrt
+  113  view nginx.conf
+  114  service nginx restart
+  115  view nginx.conf
+  116  service nginx restart
+  117  service nginx reload
