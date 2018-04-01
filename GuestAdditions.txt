@@ -1,0 +1,3 @@
+$ sudo apt-get install build-essential module-assistant
+$ sudo m-a prepare
+$ Run the VBoxLinuxAdditions.run under /media/${hostname}
