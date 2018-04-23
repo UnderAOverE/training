@@ -1,0 +1,32 @@
+/**
+	Bosh (Lite) Installation Instructions.
+	My versions in parenthesis.
+	Ubuntu (#43~16.04.1-Ubuntu)
+**/
+
+	1. Install Virtual Box 5.x (5.2.10 r122088), use whatever the package manager you have.
+		a. sudo apt-get update
+		b. sudo apt-get upgrade
+		c. sudo add-apt-repository "deb http://download.virtualbox.org/virtualbox/debian `lsb_release -cs` contrib"
+		d. wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+		wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+		e. sudo apt-get update
+		f. sudo apt-get install virtualbox-5.2
+		
+	2. Bosh CLI @ https://s3.amazonaws.com/bosh-cli-artifacts/bosh-cli-3.0.1-linux-amd64 > 2.x (3.0.1-712bfd7)
+	3. Ruby (2.3.1p112)
+	4. Clone the repository: git clone https://github.com/cloudfoundry/bosh-deployment bosh-deployment
+	5. Run the command: 
+		mkdir vbox; bosh create-env bosh-deployment/bosh.yml \
+			--state vbox/state.json \
+			-o bosh-deployment/virtualbox/cpi.yml \
+			-o bosh-deployment/virtualbox/outbound-network.yml \
+			-o bosh-deployment/bosh-lite.yml \
+			-o bosh-deployment/bosh-lite-runc.yml \
+			-o bosh-deployment/jumpbox-user.yml \
+			--vars-store vbox/creds.yml \
+			-v director_name="Bosh Lite Director" \
+			-v internal_ip=192.168.50.6 \
+			-v internal_gw=192.168.50.1 \
+			-v internal_cidr=192.168.50.0/24 \
+			-v outbound_network_name=NatNetwork
