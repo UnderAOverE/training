@@ -1,0 +1,7 @@
+Deploying:
+  Creating instance 'bosh/0':
+    Creating VM:
+      Creating vm with stemcell cid 'sc-c06a6c46-94a9-4771-413e-a089851fc950':
+        CPI 'create_vm' method responded with error: CmdError{"type":"Bosh::Clouds::CloudError","message":"Creating VM with agent ID '{{bf1f34cd-1f05-4a3b-4c14-638bc7c14b5c}}': Starting VM: Retried '30' times: Running command: 'VBoxManage startvm vm-6de6baea-3011-489a-7aae-1a323cd4156c --type headless', stdout: 'Waiting for VM \"vm-6de6baea-3011-489a-7aae-1a323cd4156c\" to power on...\n', stderr: 'VBoxManage: error: VT-x is not available (VERR_VMX_NO_VMX)\nVBoxManage: error: Details: code NS_ERROR_FAILURE (0x80004005), component ConsoleWrap, interface IConsole\n': exit status 1","ok_to_retry":false}
+
+Exit code 1
