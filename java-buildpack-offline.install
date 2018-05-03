@@ -1,0 +1,1052 @@
+Shane@Shane-Laptop MINGW64 ~
+$ cd Buildpacks/
+
+Shane@Shane-Laptop MINGW64 ~/Buildpacks
+$ ruby --version
+ruby 2.5.1p57 (2018-03-29 revision 63029) [x64-mingw32]
+
+Shane@Shane-Laptop MINGW64 ~/Buildpacks
+$ bundle --version
+bash: bundle: command not found
+
+Shane@Shane-Laptop MINGW64 ~/Buildpacks
+$ ls -lrt
+total 1
+-rw-r--r-- 1 Shane 197121 53 May  3 01:14 sample
+
+Shane@Shane-Laptop MINGW64 ~/Buildpacks
+$ gem install bundler
+Successfully installed bundler-1.16.1
+Parsing documentation for bundler-1.16.1
+Installing ri documentation for bundler-1.16.1
+Done installing documentation for bundler after 5 seconds
+1 gem installed
+
+Shane@Shane-Laptop MINGW64 ~/Buildpacks
+$ bundle --version
+Bundler version 1.16.1
+
+Shane@Shane-Laptop MINGW64 ~/Buildpacks
+$ git clone https://github.com/cloudfoundry/java-buildpack.git
+Cloning into 'java-buildpack'...
+remote: Counting objects: 14957, done.
+remote: Compressing objects: 100% (21/21), done.
+remote: Total 14957 (delta 6), reused 9 (delta 3), pack-reused 14933
+Receiving objects: 100% (14957/14957), 4.51 MiB | 2.98 MiB/s, done.
+Resolving deltas: 100% (9696/9696), done.
+
+Shane@Shane-Laptop MINGW64 ~/Buildpacks
+$ cd java-buildpack/
+
+Shane@Shane-Laptop MINGW64 ~/Buildpacks/java-buildpack (master)
+$ bundle install
+Fetching gem metadata from https://rubygems.org/...........
+Resolving dependencies...
+Fetching rake 12.3.1
+Installing rake 12.3.1
+Fetching public_suffix 3.0.2
+Installing public_suffix 3.0.2
+Fetching addressable 2.5.2
+Installing addressable 2.5.2
+Fetching ast 2.4.0
+Installing ast 2.4.0
+Using bundler 1.16.1
+Fetching safe_yaml 1.0.4
+Installing safe_yaml 1.0.4
+Fetching crack 0.4.3
+Installing crack 0.4.3
+Fetching diff-lcs 1.3
+Installing diff-lcs 1.3
+Fetching hashdiff 0.3.7
+Installing hashdiff 0.3.7
+Fetching parallel 1.12.1
+Installing parallel 1.12.1
+Fetching parser 2.5.0.5
+Installing parser 2.5.0.5
+Fetching powerpack 0.1.1
+Installing powerpack 0.1.1
+Fetching rainbow 3.0.0
+Installing rainbow 3.0.0
+Fetching redcarpet 3.4.0
+Installing redcarpet 3.4.0 with native extensions
+Fetching rspec-support 3.7.1
+Installing rspec-support 3.7.1
+Fetching rspec-core 3.7.1
+Installing rspec-core 3.7.1
+Fetching rspec-expectations 3.7.0
+Installing rspec-expectations 3.7.0
+Fetching rspec-mocks 3.7.0
+Installing rspec-mocks 3.7.0
+Fetching rspec 3.7.0
+Installing rspec 3.7.0
+Fetching ruby-progressbar 1.9.0
+Installing ruby-progressbar 1.9.0
+Fetching unicode-display_width 1.3.0
+Installing unicode-display_width 1.3.0
+Fetching rubocop 0.54.0
+Installing rubocop 0.54.0
+Fetching rubocop-rspec 1.24.0
+Installing rubocop-rspec 1.24.0
+Fetching rubyzip 1.2.1
+Installing rubyzip 1.2.1
+Fetching tee 1.0.0
+Installing tee 1.0.0
+Fetching terminal-table 1.8.0
+Installing terminal-table 1.8.0
+Fetching webmock 3.3.0
+Installing webmock 3.3.0
+Fetching yard 0.9.12
+Installing yard 0.9.12
+Bundle complete! 10 Gemfile dependencies, 28 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+Post-install message from yard:
+--------------------------------------------------------------------------------
+As of YARD v0.9.2:
+
+RubyGems "--document=yri,yard" hooks are now supported. You can auto-configure
+YARD to automatically build the yri index for installed gems by typing:
+
+    $ yard config --gem-install-yri
+
+See `yard config --help` for more information on RubyGems install hooks.
+
+You can also add the following to your .gemspec to have YARD document your gem
+on install:
+
+    spec.metadata["yard.run"] = "yri" # use "yard" to build full HTML docs.
+
+--------------------------------------------------------------------------------
+
+Shane@Shane-Laptop MINGW64 ~/Buildpacks/java-buildpack (master)
+$ bundle exec rake package OFFLINE=true
+[DownloadCache]                  WARN  Unable to download https://ca.bintray.com/apm-agents/index.yml into cache build/staging/resources/cache: Failed to open TCP connection to ca.bintray.com:443 (A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. - connect(2) for "ca.bintray.com" port 443)
+rake aborted!
+Unable to find cached file for https://ca.bintray.com/apm-agents/index.yml
+C:/Users/Shane/Buildpacks/java-buildpack/lib/java_buildpack/util/cache/download_cache.rb:79:in `get'
+C:/Users/Shane/Buildpacks/java-buildpack/rakelib/dependency_cache_task.rb:168:in `get_from_cache'
+C:/Users/Shane/Buildpacks/java-buildpack/rakelib/dependency_cache_task.rb:160:in `block (2 levels) in uris'
+C:/Users/Shane/Buildpacks/java-buildpack/rakelib/dependency_cache_task.rb:158:in `each'
+C:/Users/Shane/Buildpacks/java-buildpack/rakelib/dependency_cache_task.rb:158:in `block in uris'
+C:/Users/Shane/Buildpacks/java-buildpack/rakelib/dependency_cache_task.rb:157:in `each'
+C:/Users/Shane/Buildpacks/java-buildpack/rakelib/dependency_cache_task.rb:157:in `uris'
+C:/Users/Shane/Buildpacks/java-buildpack/rakelib/dependency_cache_task.rb:46:in `initialize'
+C:/Users/Shane/Buildpacks/java-buildpack/Rakefile:42:in `new'
+C:/Users/Shane/Buildpacks/java-buildpack/Rakefile:42:in `<top (required)>'
+(See full trace by running task with --trace)
+
+Shane@Shane-Laptop MINGW64 ~/Buildpacks/java-buildpack (master)
+$ bundle exec rake package OFFLINE=true
+Caching https://java-buildpack.cloudfoundry.org/groovy/index.yml
+Caching https://java-buildpack.cloudfoundry.org/spring-boot-cli/index.yml
+Caching https://java-buildpack.cloudfoundry.org/tomcat/index.yml
+Caching https://java-buildpack.cloudfoundry.org/tomcat-lifecycle-support/index.yml
+Caching https://java-buildpack.cloudfoundry.org/tomcat-logging-support/index.yml
+Caching https://java-buildpack.cloudfoundry.org/tomcat-access-logging-support/index.yml
+Caching https://java-buildpack.cloudfoundry.org/redis-store/index.yml
+Caching https://repo.spring.io/ext-release-local/geode-store/index.yml
+Caching https://java-buildpack.cloudfoundry.org/openjdk/trusty/x86_64/index.yml
+Caching https://java-buildpack.cloudfoundry.org/jvmkill/trusty/x86_64/index.yml
+Caching https://java-buildpack.cloudfoundry.org/memory-calculator/trusty/x86_64/index.yml
+Caching https://packages.appdynamics.com/java/index.yml
+Caching https://java-buildpack.cloudfoundry.org/client-certificate-mapper/index.yml
+Caching https://java-buildpack.cloudfoundry.org/container-customizer/index.yml
+Caching https://java-buildpack.cloudfoundry.org/container-security-provider/index.yml
+Caching https://artifacts.contrastsecurity.com/agents/java/index.yml
+Caching https://repo.dyadicsec.com/cust/pcf/index.yml
+Caching http://downloads.dynatracesaas.com/cloudfoundry/buildpack/java/index.yml
+Caching https://download.ruxit.com/agent/paas/cloudfoundry/java/index.yml
+Caching https://java-buildpack.cloudfoundry.org/google-stackdriver-debugger/trusty/x86_64/index.yml
+Caching https://ca.bintray.com/apm-agents/index.yml
+Caching https://java-buildpack.cloudfoundry.org/jacoco/index.yml
+Caching https://raw.githubusercontent.com/SAP/java-memory-assistant/repository/index.yml
+Caching https://raw.githubusercontent.com/SAP/java-memory-assistant-tools/repository-cu/index.yml
+Caching https://dl.zeroturnaround.com/jrebel/index.yml
+Caching http://files.cf-hsm.io/luna-installer/index.yml
+Caching https://java-buildpack.cloudfoundry.org/mariadb-jdbc/index.yml
+Caching https://java-buildpack.cloudfoundry.org/metric-writer/index.yml
+Caching https://download.run.pivotal.io/new-relic/index.yml
+Caching https://java-buildpack.cloudfoundry.org/postgresql-jdbc/index.yml
+Caching http://files.cf-hsm.io/protectapp-installer/index.yml
+Caching https://java-buildpack.cloudfoundry.org/auto-reconfiguration/index.yml
+Caching https://java-buildpack.cloudfoundry.org/sky-walking/index.yml
+Caching https://download.run.pivotal.io/your-kit/trusty/x86_64/index.yml
+Caching http://get.takipi.com/cloudfoundry/index.yml
+Caching https://java-buildpack.cloudfoundry.org/groovy/groovy-2.4.10.zip
+Caching https://java-buildpack.cloudfoundry.org/spring-boot-cli/spring-boot-cli-1.5.10_RELEASE.tar.gz
+Caching https://java-buildpack.cloudfoundry.org/tomcat/tomcat-8.5.30.tar.gz
+Caching https://java-buildpack.cloudfoundry.org/tomcat-lifecycle-support/tomcat-lifecycle-support-3.2.0_RELEASE.jar
+Caching https://java-buildpack.cloudfoundry.org/tomcat-logging-support/tomcat-logging-support-3.2.0_RELEASE.jar
+Caching https://java-buildpack.cloudfoundry.org/tomcat-access-logging-support/tomcat-access-logging-support-3.2.0_RELEASE.jar
+Caching https://java-buildpack.cloudfoundry.org/redis-store/redis-store-1.3.6_RELEASE.jar
+Caching https://repo.spring.io/ext-release-local/geode-store/geode-store-0.0.2.tar.gz
+Caching https://java-buildpack.cloudfoundry.org/openjdk/trusty/x86_64/openjdk-1.8.0_172.tar.gz
+Caching https://java-buildpack.cloudfoundry.org/jvmkill/trusty/x86_64/jvmkill-1.12.0_RELEASE.so
+Caching https://java-buildpack.cloudfoundry.org/memory-calculator/trusty/x86_64/memory-calculator-3.11.0_RELEASE.tar.gz
+Caching https://packages.appdynamics.com/java/4.4.3.22593/AppServerAgent-4.4.3.22593.zip
+Caching https://java-buildpack.cloudfoundry.org/client-certificate-mapper/client-certificate-mapper-1.6.0_RELEASE.jar
+Caching https://java-buildpack.cloudfoundry.org/container-customizer/container-customizer-2.6.0_RELEASE.jar
+Caching https://java-buildpack.cloudfoundry.org/container-security-provider/container-security-provider-1.13.0_RELEASE.jar
+Caching https://artifacts.contrastsecurity.com/agents/java/Java-Agent-3.5.1.251.jar
+Caching https://repo.dyadicsec.com/cust/pcf/dsm-client_1.2.tar.gz
+Caching http://downloads.dynatracesaas.com/6.3/dynatrace-agent-unix.jar
+Caching https://download.ruxit.com/agent/paas/Dynatrace-OneAgent-linux-java-1.131.143.20171117-121745.zip
+Caching https://java-buildpack.cloudfoundry.org/google-stackdriver-debugger/trusty/x86_64/google-stackdriver-debugger-2.16.0.tar.gz
+Caching https://ca.bintray.com/apm-agents/IntroscopeAgentFiles-NoInstaller10.6.0_113default.unix.tar
+Caching https://java-buildpack.cloudfoundry.org/jacoco/jacoco-0.8.1.jar
+Caching https://github.com/SAP/java-memory-assistant/releases/download/0.3.0/java-memory-assistant-0.3.0.jar
+Caching https://github.com/SAP/java-memory-assistant-tools/releases/download/0.1.0/cleanup-linux-amd64-0.1.0.zip
+Caching https://dl.zeroturnaround.com/jrebel/releases/jrebel-7.1.7-nosetup.zip
+Caching http://files.cf-hsm.io/luna-installer/lunaclient-min-6.2.0.tar
+Caching https://java-buildpack.cloudfoundry.org/mariadb-jdbc/mariadb-jdbc-2.2.3.jar
+Caching https://java-buildpack.cloudfoundry.org/metric-writer/metric-writer-2.4.0_RELEASE.jar
+Caching https://download.run.pivotal.io/new-relic/new-relic-3.48.0.jar
+Caching https://java-buildpack.cloudfoundry.org/postgresql-jdbc/postgresql-jdbc-9.4.1212.jar
+Caching http://files.cf-hsm.io/protectapp-installer/protectapp-jce-8.4.0.zip
+Caching https://java-buildpack.cloudfoundry.org/auto-reconfiguration/auto-reconfiguration-2.4.0_RELEASE.jar
+Caching https://java-buildpack.cloudfoundry.org/sky-walking/sky-walking-3.2.6.tar.gz
+Caching https://download.run.pivotal.io/your-kit/trusty/x86_64/your-kit-2017.2.75.so
+
+Caching https://app.takipi.com/app/download?t=t4c-tgz
+mkdir -p build/staging/bin
+cp bin/compile build/staging/bin/compile
+chmod 755 build/staging/bin/compile
+cp bin/detect build/staging/bin/detect
+chmod 755 build/staging/bin/detect
+cp bin/finalize build/staging/bin/finalize
+chmod 755 build/staging/bin/finalize
+cp bin/release build/staging/bin/release
+chmod 755 build/staging/bin/release
+mkdir -p build/staging/config
+cp config/app_dynamics_agent.yml build/staging/config/app_dynamics_agent.yml
+chmod 644 build/staging/config/app_dynamics_agent.yml
+cp config/aspectj_weaver_agent.yml build/staging/config/aspectj_weaver_agent.yml
+chmod 644 build/staging/config/aspectj_weaver_agent.yml
+cp config/cache.yml build/staging/config/cache.yml
+chmod 644 build/staging/config/cache.yml
+cp config/client_certificate_mapper.yml build/staging/config/client_certificate_mapper.yml
+chmod 644 build/staging/config/client_certificate_mapper.yml
+cp config/components.yml build/staging/config/components.yml
+chmod 644 build/staging/config/components.yml
+cp config/container_customizer.yml build/staging/config/container_customizer.yml
+chmod 644 build/staging/config/container_customizer.yml
+cp config/container_security_provider.yml build/staging/config/container_security_provider.yml
+chmod 644 build/staging/config/container_security_provider.yml
+cp config/contrast_security_agent.yml build/staging/config/contrast_security_agent.yml
+chmod 644 build/staging/config/contrast_security_agent.yml
+cp config/debug.yml build/staging/config/debug.yml
+chmod 644 build/staging/config/debug.yml
+cp config/dyadic_ekm_security_provider.yml build/staging/config/dyadic_ekm_security_provider.yml
+chmod 644 build/staging/config/dyadic_ekm_security_provider.yml
+cp config/dynatrace_appmon_agent.yml build/staging/config/dynatrace_appmon_agent.yml
+chmod 644 build/staging/config/dynatrace_appmon_agent.yml
+cp config/dynatrace_one_agent.yml build/staging/config/dynatrace_one_agent.yml
+chmod 644 build/staging/config/dynatrace_one_agent.yml
+cp config/google_stackdriver_debugger.yml build/staging/config/google_stackdriver_debugger.yml
+chmod 644 build/staging/config/google_stackdriver_debugger.yml
+cp config/groovy.yml build/staging/config/groovy.yml
+chmod 644 build/staging/config/groovy.yml
+cp config/ibm_jre.yml build/staging/config/ibm_jre.yml
+chmod 644 build/staging/config/ibm_jre.yml
+cp config/introscope_agent.yml build/staging/config/introscope_agent.yml
+chmod 644 build/staging/config/introscope_agent.yml
+cp config/jacoco_agent.yml build/staging/config/jacoco_agent.yml
+chmod 644 build/staging/config/jacoco_agent.yml
+cp config/java_main.yml build/staging/config/java_main.yml
+chmod 644 build/staging/config/java_main.yml
+cp config/java_memory_assistant.yml build/staging/config/java_memory_assistant.yml
+chmod 644 build/staging/config/java_memory_assistant.yml
+cp config/java_opts.yml build/staging/config/java_opts.yml
+chmod 644 build/staging/config/java_opts.yml
+cp config/jmx.yml build/staging/config/jmx.yml
+chmod 644 build/staging/config/jmx.yml
+cp config/jrebel_agent.yml build/staging/config/jrebel_agent.yml
+chmod 644 build/staging/config/jrebel_agent.yml
+cp config/logging.yml build/staging/config/logging.yml
+chmod 644 build/staging/config/logging.yml
+cp config/luna_security_provider.yml build/staging/config/luna_security_provider.yml
+chmod 644 build/staging/config/luna_security_provider.yml
+cp config/maria_db_jdbc.yml build/staging/config/maria_db_jdbc.yml
+chmod 644 build/staging/config/maria_db_jdbc.yml
+cp config/metric_writer.yml build/staging/config/metric_writer.yml
+chmod 644 build/staging/config/metric_writer.yml
+cp config/new_relic_agent.yml build/staging/config/new_relic_agent.yml
+chmod 644 build/staging/config/new_relic_agent.yml
+cp config/open_jdk_jre.yml build/staging/config/open_jdk_jre.yml
+chmod 644 build/staging/config/open_jdk_jre.yml
+cp config/oracle_jre.yml build/staging/config/oracle_jre.yml
+chmod 644 build/staging/config/oracle_jre.yml
+cp config/postgresql_jdbc.yml build/staging/config/postgresql_jdbc.yml
+chmod 644 build/staging/config/postgresql_jdbc.yml
+cp config/protect_app_security_provider.yml build/staging/config/protect_app_security_provider.yml
+chmod 644 build/staging/config/protect_app_security_provider.yml
+cp config/repository.yml build/staging/config/repository.yml
+chmod 644 build/staging/config/repository.yml
+cp config/sap_machine_jre.yml build/staging/config/sap_machine_jre.yml
+chmod 644 build/staging/config/sap_machine_jre.yml
+cp config/sky_walking_agent.yml build/staging/config/sky_walking_agent.yml
+chmod 644 build/staging/config/sky_walking_agent.yml
+cp config/spring_auto_reconfiguration.yml build/staging/config/spring_auto_reconfiguration.yml
+chmod 644 build/staging/config/spring_auto_reconfiguration.yml
+cp config/spring_boot_cli.yml build/staging/config/spring_boot_cli.yml
+chmod 644 build/staging/config/spring_boot_cli.yml
+cp config/takipi_agent.yml build/staging/config/takipi_agent.yml
+chmod 644 build/staging/config/takipi_agent.yml
+cp config/tomcat.yml build/staging/config/tomcat.yml
+chmod 644 build/staging/config/tomcat.yml
+cp config/your_kit_profiler.yml build/staging/config/your_kit_profiler.yml
+chmod 644 build/staging/config/your_kit_profiler.yml
+cp config/zulu_jre.yml build/staging/config/zulu_jre.yml
+chmod 644 build/staging/config/zulu_jre.yml
+mkdir -p build/staging/lib/java_buildpack
+cp lib/java_buildpack/buildpack.rb build/staging/lib/java_buildpack/buildpack.rb
+chmod 644 build/staging/lib/java_buildpack/buildpack.rb
+cp lib/java_buildpack/buildpack_version.rb build/staging/lib/java_buildpack/buildpack_version.rb
+chmod 644 build/staging/lib/java_buildpack/buildpack_version.rb
+mkdir -p build/staging/lib/java_buildpack/component
+cp lib/java_buildpack/component/additional_libraries.rb build/staging/lib/java_buildpack/component/additional_libraries.rb
+chmod 644 build/staging/lib/java_buildpack/component/additional_libraries.rb
+cp lib/java_buildpack/component/application.rb build/staging/lib/java_buildpack/component/application.rb
+chmod 644 build/staging/lib/java_buildpack/component/application.rb
+cp lib/java_buildpack/component/base_component.rb build/staging/lib/java_buildpack/component/base_component.rb
+chmod 644 build/staging/lib/java_buildpack/component/base_component.rb
+cp lib/java_buildpack/component/droplet.rb build/staging/lib/java_buildpack/component/droplet.rb
+chmod 644 build/staging/lib/java_buildpack/component/droplet.rb
+cp lib/java_buildpack/component/environment_variables.rb build/staging/lib/java_buildpack/component/environment_variables.rb
+chmod 644 build/staging/lib/java_buildpack/component/environment_variables.rb
+cp lib/java_buildpack/component/extension_directories.rb build/staging/lib/java_buildpack/component/extension_directories.rb
+chmod 644 build/staging/lib/java_buildpack/component/extension_directories.rb
+cp lib/java_buildpack/component/immutable_java_home.rb build/staging/lib/java_buildpack/component/immutable_java_home.rb
+chmod 644 build/staging/lib/java_buildpack/component/immutable_java_home.rb
+cp lib/java_buildpack/component/java_opts.rb build/staging/lib/java_buildpack/component/java_opts.rb
+chmod 644 build/staging/lib/java_buildpack/component/java_opts.rb
+cp lib/java_buildpack/component/modular_component.rb build/staging/lib/java_buildpack/component/modular_component.rb
+chmod 644 build/staging/lib/java_buildpack/component/modular_component.rb
+cp lib/java_buildpack/component/mutable_java_home.rb build/staging/lib/java_buildpack/component/mutable_java_home.rb
+chmod 644 build/staging/lib/java_buildpack/component/mutable_java_home.rb
+cp lib/java_buildpack/component/networking.rb build/staging/lib/java_buildpack/component/networking.rb
+chmod 644 build/staging/lib/java_buildpack/component/networking.rb
+cp lib/java_buildpack/component/security_providers.rb build/staging/lib/java_buildpack/component/security_providers.rb
+chmod 644 build/staging/lib/java_buildpack/component/security_providers.rb
+cp lib/java_buildpack/component/services.rb build/staging/lib/java_buildpack/component/services.rb
+chmod 644 build/staging/lib/java_buildpack/component/services.rb
+cp lib/java_buildpack/component/versioned_dependency_component.rb build/staging/lib/java_buildpack/component/versioned_dependency_component.rb
+chmod 644 build/staging/lib/java_buildpack/component/versioned_dependency_component.rb
+cp lib/java_buildpack/component.rb build/staging/lib/java_buildpack/component.rb
+chmod 644 build/staging/lib/java_buildpack/component.rb
+mkdir -p build/staging/lib/java_buildpack/container
+cp lib/java_buildpack/container/dist_zip.rb build/staging/lib/java_buildpack/container/dist_zip.rb
+chmod 644 build/staging/lib/java_buildpack/container/dist_zip.rb
+cp lib/java_buildpack/container/dist_zip_like.rb build/staging/lib/java_buildpack/container/dist_zip_like.rb
+chmod 644 build/staging/lib/java_buildpack/container/dist_zip_like.rb
+cp lib/java_buildpack/container/groovy.rb build/staging/lib/java_buildpack/container/groovy.rb
+chmod 644 build/staging/lib/java_buildpack/container/groovy.rb
+cp lib/java_buildpack/container/java_main.rb build/staging/lib/java_buildpack/container/java_main.rb
+chmod 644 build/staging/lib/java_buildpack/container/java_main.rb
+cp lib/java_buildpack/container/play_framework.rb build/staging/lib/java_buildpack/container/play_framework.rb
+chmod 644 build/staging/lib/java_buildpack/container/play_framework.rb
+cp lib/java_buildpack/container/ratpack.rb build/staging/lib/java_buildpack/container/ratpack.rb
+chmod 644 build/staging/lib/java_buildpack/container/ratpack.rb
+cp lib/java_buildpack/container/spring_boot.rb build/staging/lib/java_buildpack/container/spring_boot.rb
+chmod 644 build/staging/lib/java_buildpack/container/spring_boot.rb
+cp lib/java_buildpack/container/spring_boot_cli.rb build/staging/lib/java_buildpack/container/spring_boot_cli.rb
+chmod 644 build/staging/lib/java_buildpack/container/spring_boot_cli.rb
+mkdir -p build/staging/lib/java_buildpack/container/tomcat
+cp lib/java_buildpack/container/tomcat/tomcat_access_logging_support.rb build/staging/lib/java_buildpack/container/tomcat/tomcat_access_logging_support.rb
+chmod 644 build/staging/lib/java_buildpack/container/tomcat/tomcat_access_logging_support.rb
+cp lib/java_buildpack/container/tomcat/tomcat_external_configuration.rb build/staging/lib/java_buildpack/container/tomcat/tomcat_external_configuration.rb
+chmod 644 build/staging/lib/java_buildpack/container/tomcat/tomcat_external_configuration.rb
+cp lib/java_buildpack/container/tomcat/tomcat_geode_store.rb build/staging/lib/java_buildpack/container/tomcat/tomcat_geode_store.rb
+chmod 644 build/staging/lib/java_buildpack/container/tomcat/tomcat_geode_store.rb
+cp lib/java_buildpack/container/tomcat/tomcat_insight_support.rb build/staging/lib/java_buildpack/container/tomcat/tomcat_insight_support.rb
+chmod 644 build/staging/lib/java_buildpack/container/tomcat/tomcat_insight_support.rb
+cp lib/java_buildpack/container/tomcat/tomcat_instance.rb build/staging/lib/java_buildpack/container/tomcat/tomcat_instance.rb
+chmod 644 build/staging/lib/java_buildpack/container/tomcat/tomcat_instance.rb
+cp lib/java_buildpack/container/tomcat/tomcat_lifecycle_support.rb build/staging/lib/java_buildpack/container/tomcat/tomcat_lifecycle_support.rb
+chmod 644 build/staging/lib/java_buildpack/container/tomcat/tomcat_lifecycle_support.rb
+cp lib/java_buildpack/container/tomcat/tomcat_logging_support.rb build/staging/lib/java_buildpack/container/tomcat/tomcat_logging_support.rb
+chmod 644 build/staging/lib/java_buildpack/container/tomcat/tomcat_logging_support.rb
+cp lib/java_buildpack/container/tomcat/tomcat_redis_store.rb build/staging/lib/java_buildpack/container/tomcat/tomcat_redis_store.rb
+chmod 644 build/staging/lib/java_buildpack/container/tomcat/tomcat_redis_store.rb
+cp lib/java_buildpack/container/tomcat/tomcat_utils.rb build/staging/lib/java_buildpack/container/tomcat/tomcat_utils.rb
+chmod 644 build/staging/lib/java_buildpack/container/tomcat/tomcat_utils.rb
+cp lib/java_buildpack/container/tomcat.rb build/staging/lib/java_buildpack/container/tomcat.rb
+chmod 644 build/staging/lib/java_buildpack/container/tomcat.rb
+cp lib/java_buildpack/container.rb build/staging/lib/java_buildpack/container.rb
+chmod 644 build/staging/lib/java_buildpack/container.rb
+mkdir -p build/staging/lib/java_buildpack/framework
+cp lib/java_buildpack/framework/app_dynamics_agent.rb build/staging/lib/java_buildpack/framework/app_dynamics_agent.rb
+chmod 644 build/staging/lib/java_buildpack/framework/app_dynamics_agent.rb
+cp lib/java_buildpack/framework/aspectj_weaver_agent.rb build/staging/lib/java_buildpack/framework/aspectj_weaver_agent.rb
+chmod 644 build/staging/lib/java_buildpack/framework/aspectj_weaver_agent.rb
+cp lib/java_buildpack/framework/client_certificate_mapper.rb build/staging/lib/java_buildpack/framework/client_certificate_mapper.rb
+chmod 644 build/staging/lib/java_buildpack/framework/client_certificate_mapper.rb
+cp lib/java_buildpack/framework/container_customizer.rb build/staging/lib/java_buildpack/framework/container_customizer.rb
+chmod 644 build/staging/lib/java_buildpack/framework/container_customizer.rb
+cp lib/java_buildpack/framework/container_security_provider.rb build/staging/lib/java_buildpack/framework/container_security_provider.rb
+chmod 644 build/staging/lib/java_buildpack/framework/container_security_provider.rb
+cp lib/java_buildpack/framework/contrast_security_agent.rb build/staging/lib/java_buildpack/framework/contrast_security_agent.rb
+chmod 644 build/staging/lib/java_buildpack/framework/contrast_security_agent.rb
+cp lib/java_buildpack/framework/debug.rb build/staging/lib/java_buildpack/framework/debug.rb
+chmod 644 build/staging/lib/java_buildpack/framework/debug.rb
+cp lib/java_buildpack/framework/dyadic_ekm_security_provider.rb build/staging/lib/java_buildpack/framework/dyadic_ekm_security_provider.rb
+chmod 644 build/staging/lib/java_buildpack/framework/dyadic_ekm_security_provider.rb
+cp lib/java_buildpack/framework/dynatrace_appmon_agent.rb build/staging/lib/java_buildpack/framework/dynatrace_appmon_agent.rb
+chmod 644 build/staging/lib/java_buildpack/framework/dynatrace_appmon_agent.rb
+cp lib/java_buildpack/framework/dynatrace_one_agent.rb build/staging/lib/java_buildpack/framework/dynatrace_one_agent.rb
+chmod 644 build/staging/lib/java_buildpack/framework/dynatrace_one_agent.rb
+cp lib/java_buildpack/framework/google_stackdriver_debugger.rb build/staging/lib/java_buildpack/framework/google_stackdriver_debugger.rb
+chmod 644 build/staging/lib/java_buildpack/framework/google_stackdriver_debugger.rb
+cp lib/java_buildpack/framework/introscope_agent.rb build/staging/lib/java_buildpack/framework/introscope_agent.rb
+chmod 644 build/staging/lib/java_buildpack/framework/introscope_agent.rb
+cp lib/java_buildpack/framework/jacoco_agent.rb build/staging/lib/java_buildpack/framework/jacoco_agent.rb
+chmod 644 build/staging/lib/java_buildpack/framework/jacoco_agent.rb
+mkdir -p build/staging/lib/java_buildpack/framework/java_memory_assistant
+cp lib/java_buildpack/framework/java_memory_assistant/agent.rb build/staging/lib/java_buildpack/framework/java_memory_assistant/agent.rb
+chmod 644 build/staging/lib/java_buildpack/framework/java_memory_assistant/agent.rb
+cp lib/java_buildpack/framework/java_memory_assistant/clean_up.rb build/staging/lib/java_buildpack/framework/java_memory_assistant/clean_up.rb
+chmod 644 build/staging/lib/java_buildpack/framework/java_memory_assistant/clean_up.rb
+cp lib/java_buildpack/framework/java_memory_assistant/heap_dump_folder.rb build/staging/lib/java_buildpack/framework/java_memory_assistant/heap_dump_folder.rb
+chmod 644 build/staging/lib/java_buildpack/framework/java_memory_assistant/heap_dump_folder.rb
+cp lib/java_buildpack/framework/java_memory_assistant.rb build/staging/lib/java_buildpack/framework/java_memory_assistant.rb
+chmod 644 build/staging/lib/java_buildpack/framework/java_memory_assistant.rb
+cp lib/java_buildpack/framework/java_opts.rb build/staging/lib/java_buildpack/framework/java_opts.rb
+chmod 644 build/staging/lib/java_buildpack/framework/java_opts.rb
+cp lib/java_buildpack/framework/java_security.rb build/staging/lib/java_buildpack/framework/java_security.rb
+chmod 644 build/staging/lib/java_buildpack/framework/java_security.rb
+cp lib/java_buildpack/framework/jmx.rb build/staging/lib/java_buildpack/framework/jmx.rb
+chmod 644 build/staging/lib/java_buildpack/framework/jmx.rb
+cp lib/java_buildpack/framework/jrebel_agent.rb build/staging/lib/java_buildpack/framework/jrebel_agent.rb
+chmod 644 build/staging/lib/java_buildpack/framework/jrebel_agent.rb
+cp lib/java_buildpack/framework/luna_security_provider.rb build/staging/lib/java_buildpack/framework/luna_security_provider.rb
+chmod 644 build/staging/lib/java_buildpack/framework/luna_security_provider.rb
+cp lib/java_buildpack/framework/maria_db_jdbc.rb build/staging/lib/java_buildpack/framework/maria_db_jdbc.rb
+chmod 644 build/staging/lib/java_buildpack/framework/maria_db_jdbc.rb
+cp lib/java_buildpack/framework/metric_writer.rb build/staging/lib/java_buildpack/framework/metric_writer.rb
+chmod 644 build/staging/lib/java_buildpack/framework/metric_writer.rb
+cp lib/java_buildpack/framework/multi_buildpack.rb build/staging/lib/java_buildpack/framework/multi_buildpack.rb
+chmod 644 build/staging/lib/java_buildpack/framework/multi_buildpack.rb
+cp lib/java_buildpack/framework/new_relic_agent.rb build/staging/lib/java_buildpack/framework/new_relic_agent.rb
+chmod 644 build/staging/lib/java_buildpack/framework/new_relic_agent.rb
+cp lib/java_buildpack/framework/postgresql_jdbc.rb build/staging/lib/java_buildpack/framework/postgresql_jdbc.rb
+chmod 644 build/staging/lib/java_buildpack/framework/postgresql_jdbc.rb
+cp lib/java_buildpack/framework/protect_app_security_provider.rb build/staging/lib/java_buildpack/framework/protect_app_security_provider.rb
+chmod 644 build/staging/lib/java_buildpack/framework/protect_app_security_provider.rb
+cp lib/java_buildpack/framework/sky_walking_agent.rb build/staging/lib/java_buildpack/framework/sky_walking_agent.rb
+chmod 644 build/staging/lib/java_buildpack/framework/sky_walking_agent.rb
+cp lib/java_buildpack/framework/spring_auto_reconfiguration.rb build/staging/lib/java_buildpack/framework/spring_auto_reconfiguration.rb
+chmod 644 build/staging/lib/java_buildpack/framework/spring_auto_reconfiguration.rb
+cp lib/java_buildpack/framework/spring_insight.rb build/staging/lib/java_buildpack/framework/spring_insight.rb
+chmod 644 build/staging/lib/java_buildpack/framework/spring_insight.rb
+cp lib/java_buildpack/framework/takipi_agent.rb build/staging/lib/java_buildpack/framework/takipi_agent.rb
+chmod 644 build/staging/lib/java_buildpack/framework/takipi_agent.rb
+cp lib/java_buildpack/framework/your_kit_profiler.rb build/staging/lib/java_buildpack/framework/your_kit_profiler.rb
+chmod 644 build/staging/lib/java_buildpack/framework/your_kit_profiler.rb
+cp lib/java_buildpack/framework.rb build/staging/lib/java_buildpack/framework.rb
+chmod 644 build/staging/lib/java_buildpack/framework.rb
+mkdir -p build/staging/lib/java_buildpack/jre
+cp lib/java_buildpack/jre/ibm_jre.rb build/staging/lib/java_buildpack/jre/ibm_jre.rb
+chmod 644 build/staging/lib/java_buildpack/jre/ibm_jre.rb
+cp lib/java_buildpack/jre/ibm_jre_initializer.rb build/staging/lib/java_buildpack/jre/ibm_jre_initializer.rb
+chmod 644 build/staging/lib/java_buildpack/jre/ibm_jre_initializer.rb
+cp lib/java_buildpack/jre/jvmkill_agent.rb build/staging/lib/java_buildpack/jre/jvmkill_agent.rb
+chmod 644 build/staging/lib/java_buildpack/jre/jvmkill_agent.rb
+cp lib/java_buildpack/jre/open_jdk_jre.rb build/staging/lib/java_buildpack/jre/open_jdk_jre.rb
+chmod 644 build/staging/lib/java_buildpack/jre/open_jdk_jre.rb
+cp lib/java_buildpack/jre/open_jdk_like.rb build/staging/lib/java_buildpack/jre/open_jdk_like.rb
+chmod 644 build/staging/lib/java_buildpack/jre/open_jdk_like.rb
+cp lib/java_buildpack/jre/open_jdk_like_jre.rb build/staging/lib/java_buildpack/jre/open_jdk_like_jre.rb
+chmod 644 build/staging/lib/java_buildpack/jre/open_jdk_like_jre.rb
+cp lib/java_buildpack/jre/open_jdk_like_memory_calculator.rb build/staging/lib/java_buildpack/jre/open_jdk_like_memory_calculator.rb
+chmod 644 build/staging/lib/java_buildpack/jre/open_jdk_like_memory_calculator.rb
+cp lib/java_buildpack/jre/open_jdk_like_security_providers.rb build/staging/lib/java_buildpack/jre/open_jdk_like_security_providers.rb
+chmod 644 build/staging/lib/java_buildpack/jre/open_jdk_like_security_providers.rb
+cp lib/java_buildpack/jre/oracle_jre.rb build/staging/lib/java_buildpack/jre/oracle_jre.rb
+chmod 644 build/staging/lib/java_buildpack/jre/oracle_jre.rb
+cp lib/java_buildpack/jre/sap_machine_jre.rb build/staging/lib/java_buildpack/jre/sap_machine_jre.rb
+chmod 644 build/staging/lib/java_buildpack/jre/sap_machine_jre.rb
+cp lib/java_buildpack/jre/zulu_jre.rb build/staging/lib/java_buildpack/jre/zulu_jre.rb
+chmod 644 build/staging/lib/java_buildpack/jre/zulu_jre.rb
+cp lib/java_buildpack/jre.rb build/staging/lib/java_buildpack/jre.rb
+chmod 644 build/staging/lib/java_buildpack/jre.rb
+mkdir -p build/staging/lib/java_buildpack/logging
+cp lib/java_buildpack/logging/delegating_logger.rb build/staging/lib/java_buildpack/logging/delegating_logger.rb
+chmod 644 build/staging/lib/java_buildpack/logging/delegating_logger.rb
+cp lib/java_buildpack/logging/logger_factory.rb build/staging/lib/java_buildpack/logging/logger_factory.rb
+chmod 644 build/staging/lib/java_buildpack/logging/logger_factory.rb
+cp lib/java_buildpack/logging.rb build/staging/lib/java_buildpack/logging.rb
+chmod 644 build/staging/lib/java_buildpack/logging.rb
+mkdir -p build/staging/lib/java_buildpack/repository
+cp lib/java_buildpack/repository/configured_item.rb build/staging/lib/java_buildpack/repository/configured_item.rb
+chmod 644 build/staging/lib/java_buildpack/repository/configured_item.rb
+cp lib/java_buildpack/repository/repository_index.rb build/staging/lib/java_buildpack/repository/repository_index.rb
+chmod 644 build/staging/lib/java_buildpack/repository/repository_index.rb
+cp lib/java_buildpack/repository/version_resolver.rb build/staging/lib/java_buildpack/repository/version_resolver.rb
+chmod 644 build/staging/lib/java_buildpack/repository/version_resolver.rb
+cp lib/java_buildpack/repository.rb build/staging/lib/java_buildpack/repository.rb
+chmod 644 build/staging/lib/java_buildpack/repository.rb
+mkdir -p build/staging/lib/java_buildpack/util/cache
+cp lib/java_buildpack/util/cache/application_cache.rb build/staging/lib/java_buildpack/util/cache/application_cache.rb
+chmod 644 build/staging/lib/java_buildpack/util/cache/application_cache.rb
+cp lib/java_buildpack/util/cache/cached_file.rb build/staging/lib/java_buildpack/util/cache/cached_file.rb
+chmod 644 build/staging/lib/java_buildpack/util/cache/cached_file.rb
+cp lib/java_buildpack/util/cache/cache_factory.rb build/staging/lib/java_buildpack/util/cache/cache_factory.rb
+chmod 644 build/staging/lib/java_buildpack/util/cache/cache_factory.rb
+cp lib/java_buildpack/util/cache/download_cache.rb build/staging/lib/java_buildpack/util/cache/download_cache.rb
+chmod 644 build/staging/lib/java_buildpack/util/cache/download_cache.rb
+cp lib/java_buildpack/util/cache/inferred_network_failure.rb build/staging/lib/java_buildpack/util/cache/inferred_network_failure.rb
+chmod 644 build/staging/lib/java_buildpack/util/cache/inferred_network_failure.rb
+cp lib/java_buildpack/util/cache/internet_availability.rb build/staging/lib/java_buildpack/util/cache/internet_availability.rb
+chmod 644 build/staging/lib/java_buildpack/util/cache/internet_availability.rb
+cp lib/java_buildpack/util/cache.rb build/staging/lib/java_buildpack/util/cache.rb
+chmod 644 build/staging/lib/java_buildpack/util/cache.rb
+cp lib/java_buildpack/util/class_file_utils.rb build/staging/lib/java_buildpack/util/class_file_utils.rb
+chmod 644 build/staging/lib/java_buildpack/util/class_file_utils.rb
+cp lib/java_buildpack/util/colorize.rb build/staging/lib/java_buildpack/util/colorize.rb
+chmod 644 build/staging/lib/java_buildpack/util/colorize.rb
+cp lib/java_buildpack/util/configuration_utils.rb build/staging/lib/java_buildpack/util/configuration_utils.rb
+chmod 644 build/staging/lib/java_buildpack/util/configuration_utils.rb
+cp lib/java_buildpack/util/constantize.rb build/staging/lib/java_buildpack/util/constantize.rb
+chmod 644 build/staging/lib/java_buildpack/util/constantize.rb
+cp lib/java_buildpack/util/dash_case.rb build/staging/lib/java_buildpack/util/dash_case.rb
+chmod 644 build/staging/lib/java_buildpack/util/dash_case.rb
+cp lib/java_buildpack/util/file_enumerable.rb build/staging/lib/java_buildpack/util/file_enumerable.rb
+chmod 644 build/staging/lib/java_buildpack/util/file_enumerable.rb
+cp lib/java_buildpack/util/filtering_pathname.rb build/staging/lib/java_buildpack/util/filtering_pathname.rb
+chmod 644 build/staging/lib/java_buildpack/util/filtering_pathname.rb
+cp lib/java_buildpack/util/find_single_directory.rb build/staging/lib/java_buildpack/util/find_single_directory.rb
+chmod 644 build/staging/lib/java_buildpack/util/find_single_directory.rb
+cp lib/java_buildpack/util/format_duration.rb build/staging/lib/java_buildpack/util/format_duration.rb
+chmod 644 build/staging/lib/java_buildpack/util/format_duration.rb
+cp lib/java_buildpack/util/groovy_utils.rb build/staging/lib/java_buildpack/util/groovy_utils.rb
+chmod 644 build/staging/lib/java_buildpack/util/groovy_utils.rb
+cp lib/java_buildpack/util/jar_finder.rb build/staging/lib/java_buildpack/util/jar_finder.rb
+chmod 644 build/staging/lib/java_buildpack/util/jar_finder.rb
+cp lib/java_buildpack/util/java_main_utils.rb build/staging/lib/java_buildpack/util/java_main_utils.rb
+chmod 644 build/staging/lib/java_buildpack/util/java_main_utils.rb
+mkdir -p build/staging/lib/java_buildpack/util/play
+cp lib/java_buildpack/util/play/base.rb build/staging/lib/java_buildpack/util/play/base.rb
+chmod 644 build/staging/lib/java_buildpack/util/play/base.rb
+cp lib/java_buildpack/util/play/factory.rb build/staging/lib/java_buildpack/util/play/factory.rb
+chmod 644 build/staging/lib/java_buildpack/util/play/factory.rb
+cp lib/java_buildpack/util/play/post22.rb build/staging/lib/java_buildpack/util/play/post22.rb
+chmod 644 build/staging/lib/java_buildpack/util/play/post22.rb
+cp lib/java_buildpack/util/play/post22_dist.rb build/staging/lib/java_buildpack/util/play/post22_dist.rb
+chmod 644 build/staging/lib/java_buildpack/util/play/post22_dist.rb
+cp lib/java_buildpack/util/play/post22_staged.rb build/staging/lib/java_buildpack/util/play/post22_staged.rb
+chmod 644 build/staging/lib/java_buildpack/util/play/post22_staged.rb
+cp lib/java_buildpack/util/play/pre22.rb build/staging/lib/java_buildpack/util/play/pre22.rb
+chmod 644 build/staging/lib/java_buildpack/util/play/pre22.rb
+cp lib/java_buildpack/util/play/pre22_dist.rb build/staging/lib/java_buildpack/util/play/pre22_dist.rb
+chmod 644 build/staging/lib/java_buildpack/util/play/pre22_dist.rb
+cp lib/java_buildpack/util/play/pre22_staged.rb build/staging/lib/java_buildpack/util/play/pre22_staged.rb
+chmod 644 build/staging/lib/java_buildpack/util/play/pre22_staged.rb
+cp lib/java_buildpack/util/play.rb build/staging/lib/java_buildpack/util/play.rb
+chmod 644 build/staging/lib/java_buildpack/util/play.rb
+cp lib/java_buildpack/util/properties.rb build/staging/lib/java_buildpack/util/properties.rb
+chmod 644 build/staging/lib/java_buildpack/util/properties.rb
+cp lib/java_buildpack/util/qualify_path.rb build/staging/lib/java_buildpack/util/qualify_path.rb
+chmod 644 build/staging/lib/java_buildpack/util/qualify_path.rb
+cp lib/java_buildpack/util/ratpack_utils.rb build/staging/lib/java_buildpack/util/ratpack_utils.rb
+chmod 644 build/staging/lib/java_buildpack/util/ratpack_utils.rb
+cp lib/java_buildpack/util/sanitizer.rb build/staging/lib/java_buildpack/util/sanitizer.rb
+chmod 644 build/staging/lib/java_buildpack/util/sanitizer.rb
+cp lib/java_buildpack/util/shell.rb build/staging/lib/java_buildpack/util/shell.rb
+chmod 644 build/staging/lib/java_buildpack/util/shell.rb
+cp lib/java_buildpack/util/snake_case.rb build/staging/lib/java_buildpack/util/snake_case.rb
+chmod 644 build/staging/lib/java_buildpack/util/snake_case.rb
+cp lib/java_buildpack/util/space_case.rb build/staging/lib/java_buildpack/util/space_case.rb
+chmod 644 build/staging/lib/java_buildpack/util/space_case.rb
+cp lib/java_buildpack/util/spring_boot_utils.rb build/staging/lib/java_buildpack/util/spring_boot_utils.rb
+chmod 644 build/staging/lib/java_buildpack/util/spring_boot_utils.rb
+cp lib/java_buildpack/util/start_script.rb build/staging/lib/java_buildpack/util/start_script.rb
+chmod 644 build/staging/lib/java_buildpack/util/start_script.rb
+cp lib/java_buildpack/util/tokenized_version.rb build/staging/lib/java_buildpack/util/tokenized_version.rb
+chmod 644 build/staging/lib/java_buildpack/util/tokenized_version.rb
+cp lib/java_buildpack/util/to_b.rb build/staging/lib/java_buildpack/util/to_b.rb
+chmod 644 build/staging/lib/java_buildpack/util/to_b.rb
+cp lib/java_buildpack/util.rb build/staging/lib/java_buildpack/util.rb
+chmod 644 build/staging/lib/java_buildpack/util.rb
+cp lib/java_buildpack.rb build/staging/lib/java_buildpack.rb
+chmod 644 build/staging/lib/java_buildpack.rb
+mkdir -p build/staging/resources/luna_security_provider
+cp resources/luna_security_provider/Chrystoki.conf build/staging/resources/luna_security_provider/Chrystoki.conf
+chmod 644 build/staging/resources/luna_security_provider/Chrystoki.conf
+mkdir -p build/staging/resources/new_relic_agent
+cp resources/new_relic_agent/newrelic.yml build/staging/resources/new_relic_agent/newrelic.yml
+chmod 644 build/staging/resources/new_relic_agent/newrelic.yml
+mkdir -p build/staging/resources/protect_app_security_provider
+cp resources/protect_app_security_provider/IngrianNAE.properties build/staging/resources/protect_app_security_provider/IngrianNAE.properties
+chmod 644 build/staging/resources/protect_app_security_provider/IngrianNAE.properties
+mkdir -p build/staging/resources/tomcat/conf
+cp resources/tomcat/conf/context.xml build/staging/resources/tomcat/conf/context.xml
+chmod 644 build/staging/resources/tomcat/conf/context.xml
+cp resources/tomcat/conf/logging.properties build/staging/resources/tomcat/conf/logging.properties
+chmod 644 build/staging/resources/tomcat/conf/logging.properties
+cp resources/tomcat/conf/server.xml build/staging/resources/tomcat/conf/server.xml
+chmod 644 build/staging/resources/tomcat/conf/server.xml
+cp LICENSE build/staging/LICENSE
+chmod 644 build/staging/LICENSE
+cp NOTICE build/staging/NOTICE
+chmod 644 build/staging/NOTICE
+[DownloadCache]                  WARN  Request failure 1, retrying after 5s.  Failure: Content has invalid size.  Was 22379525, should be 32008644.
+Creating build/java-buildpack-offline-33b33f6.zip
+
+Shane@Shane-Laptop MINGW64 ~/Buildpacks/java-buildpack (master)
+$
+
+Shane@Shane-Laptop MINGW64 ~/Buildpacks/java-buildpack (master)
+$ ls -lrt
+total 134
+-rw-r--r-- 1 Shane 197121   234 May  3 01:32 Gemfile
+-rw-r--r-- 1 Shane 197121  8977 May  3 01:32 CONTRIBUTING.md
+-rw-r--r-- 1 Shane 197121 11560 May  3 01:32 LICENSE
+-rw-r--r-- 1 Shane 197121   651 May  3 01:32 NOTICE
+-rw-r--r-- 1 Shane 197121 13496 May  3 01:32 README.md
+-rw-r--r-- 1 Shane 197121  1691 May  3 01:32 Rakefile
+drwxr-xr-x 1 Shane 197121     0 May  3 01:32 bin/
+drwxr-xr-x 1 Shane 197121     0 May  3 01:32 ci/
+drwxr-xr-x 1 Shane 197121     0 May  3 01:32 config/
+drwxr-xr-x 1 Shane 197121     0 May  3 01:32 docs/
+-rw-r--r-- 1 Shane 197121 21423 May  3 01:32 java-buildpack.iml
+drwxr-xr-x 1 Shane 197121     0 May  3 01:32 lib/
+drwxr-xr-x 1 Shane 197121     0 May  3 01:32 rakelib/
+drwxr-xr-x 1 Shane 197121     0 May  3 01:32 resources/
+drwxr-xr-x 1 Shane 197121     0 May  3 01:32 spec/
+-rw-r--r-- 1 Shane 197121  1555 May  3 01:33 Gemfile.lock
+drwxr-xr-x 1 Shane 197121     0 May  3 01:43 build/
+
+Shane@Shane-Laptop MINGW64 ~/Buildpacks/java-buildpack (master)
+$ cd build/
+
+Shane@Shane-Laptop MINGW64 ~/Buildpacks/java-buildpack/build (master)
+$ ls -lrt
+total 354792
+drwxr-xr-x 1 Shane 197121         0 May  3 01:41 staging/
+-rw-r--r-- 1 Shane 197121 363303932 May  3 01:43 java-buildpack-offline-33b33f6.zip
+
+Shane@Shane-Laptop MINGW64 ~/Buildpacks/java-buildpack/build (master)
+$ unzip -vl
+java-buildpack-offline-33b33f6.zip  staging/
+
+Shane@Shane-Laptop MINGW64 ~/Buildpacks/java-buildpack/build (master)
+$ unzip -vl java-buildpack-offline-33b33f6.zip
+Archive:  java-buildpack-offline-33b33f6.zip
+ Length   Method    Size  Cmpr    Date    Time   CRC-32   Name
+--------  ------  ------- ---- ---------- ----- --------  ----
+       0  Stored        0   0% 2018-05-03 01:42 00000000  bin/
+     958  Defl:N      576  40% 2018-05-03 01:42 2b1a796d  bin/compile
+    1110  Defl:N      662  40% 2018-05-03 01:42 764ffd5e  bin/detect
+     959  Defl:N      577  40% 2018-05-03 01:42 f3fe0578  bin/finalize
+     982  Defl:N      588  40% 2018-05-03 01:42 d85a953a  bin/release
+       0  Stored        0   0% 2018-05-03 01:42 00000000  config/
+    1096  Defl:N      606  45% 2018-05-03 01:42 7f997e8f  config/app_dynamics_agent.yml
+     706  Defl:N      437  38% 2018-05-03 01:42 efac4036  config/aspectj_weaver_agent.yml
+     812  Defl:N      481  41% 2018-05-03 01:42 21336723  config/cache.yml
+     784  Defl:N      487  38% 2018-05-03 01:42 638332dd  config/client_certificate_mapper.yml
+    3378  Defl:N     1126  67% 2018-05-03 01:42 4b051192  config/components.yml
+     790  Defl:N      481  39% 2018-05-03 01:42 9f3f354e  config/container_customizer.yml
+     834  Defl:N      501  40% 2018-05-03 01:42 00c7d144  config/container_security_provider.yml
+     788  Defl:N      483  39% 2018-05-03 01:42 0aabc368  config/contrast_security_agent.yml
+     720  Defl:N      444  38% 2018-05-03 01:42 7f43a098  config/debug.yml
+     779  Defl:N      483  38% 2018-05-03 01:42 96a58765  config/dyadic_ekm_security_provider.yml
+     819  Defl:N      506  38% 2018-05-03 01:42 4ee9fef1  config/dynatrace_appmon_agent.yml
+     799  Defl:N      498  38% 2018-05-03 01:42 df9bf350  config/dynatrace_one_agent.yml
+     852  Defl:N      518  39% 2018-05-03 01:42 504833d4  config/google_stackdriver_debugger.yml
+     764  Defl:N      473  38% 2018-05-03 01:42 23a64d84  config/groovy.yml
+     983  Defl:N      562  43% 2018-05-03 01:42 c825826f  config/ibm_jre.yml
+     875  Defl:N      551  37% 2018-05-03 01:42 000b9099  config/introscope_agent.yml
+     768  Defl:N      477  38% 2018-05-03 01:42 193534a8  config/jacoco_agent.yml
+     728  Defl:N      449  38% 2018-05-03 01:42 473d7f9b  config/java_main.yml
+    1165  Defl:N      637  45% 2018-05-03 01:42 b6bab37c  config/java_memory_assistant.yml
+     716  Defl:N      451  37% 2018-05-03 01:42 8f4e1156  config/java_opts.yml
+     702  Defl:N      439  38% 2018-05-03 01:42 23810996  config/jmx.yml
+     779  Defl:N      484  38% 2018-05-03 01:42 33935309  config/jrebel_agent.yml
+     727  Defl:N      453  38% 2018-05-03 01:42 a300b850  config/logging.yml
+     862  Defl:N      518  40% 2018-05-03 01:42 4dbcbb32  config/luna_security_provider.yml
+     774  Defl:N      482  38% 2018-05-03 01:42 e52db0e3  config/maria_db_jdbc.yml
+     758  Defl:N      471  38% 2018-05-03 01:42 5ed15478  config/metric_writer.yml
+     772  Defl:N      479  38% 2018-05-03 01:42 c7935db1  config/new_relic_agent.yml
+    1211  Defl:N      635  48% 2018-05-03 01:42 394ba78e  config/open_jdk_jre.yml
+    1343  Defl:N      681  49% 2018-05-03 01:42 dfde23f7  config/oracle_jre.yml
+     782  Defl:N      486  38% 2018-05-03 01:42 798d9c35  config/postgresql_jdbc.yml
+     795  Defl:N      492  38% 2018-05-03 01:42 a7555881  config/protect_app_security_provider.yml
+     747  Defl:N      460  38% 2018-05-03 01:42 925e83f5  config/repository.yml
+    1074  Defl:N      597  44% 2018-05-03 01:42 0192bf5b  config/sap_machine_jre.yml
+    1088  Defl:N      643  41% 2018-05-03 01:42 822a3277  config/sky_walking_agent.yml
+     946  Defl:N      543  43% 2018-05-03 01:42 3553f998  config/spring_auto_reconfiguration.yml
+     926  Defl:N      536  42% 2018-05-03 01:42 14baf917  config/spring_boot_cli.yml
+     806  Defl:N      492  39% 2018-05-03 01:42 418cdd21  config/takipi_agent.yml
+    1511  Defl:N      672  56% 2018-05-03 01:42 76c33c1a  config/tomcat.yml
+     110  Defl:N       95  14% 2018-05-03 01:42 0eb8bb7b  config/version.yml
+     959  Defl:N      617  36% 2018-05-03 01:42 e7e1ef21  config/your_kit_profiler.yml
+    1368  Defl:N      692  49% 2018-05-03 01:42 77a9937b  config/zulu_jre.yml
+       0  Stored        0   0% 2018-05-03 01:42 00000000  lib/
+       0  Stored        0   0% 2018-05-03 01:42 00000000  lib/java_buildpack/
+   10622  Defl:N     3146  70% 2018-05-03 01:42 2995dec4  lib/java_buildpack/buildpack.rb
+    4577  Defl:N     1716  63% 2018-05-03 01:42 ffbf4194  lib/java_buildpack/buildpack_version.rb
+       0  Stored        0   0% 2018-05-03 01:42 00000000  lib/java_buildpack/component/
+    2042  Defl:N      945  54% 2018-05-03 01:42 523a482c  lib/java_buildpack/component/additional_libraries.rb
+    3064  Defl:N     1202  61% 2018-05-03 01:42 29eb0706  lib/java_buildpack/component/application.rb
+    8784  Defl:N     2421  72% 2018-05-03 01:42 c1835df4  lib/java_buildpack/component/base_component.rb
+    7413  Defl:N     1937  74% 2018-05-03 01:42 346bad77  lib/java_buildpack/component/droplet.rb
+    2125  Defl:N      959  55% 2018-05-03 01:42 be07d322  lib/java_buildpack/component/environment_variables.rb
+    1677  Defl:N      824  51% 2018-05-03 01:42 d1f08925  lib/java_buildpack/component/extension_directories.rb
+    2439  Defl:N     1002  59% 2018-05-03 01:42 58c0e13c  lib/java_buildpack/component/immutable_java_home.rb
+    5457  Defl:N     1374  75% 2018-05-03 01:42 cf3782b1  lib/java_buildpack/component/java_opts.rb
+    3764  Defl:N     1289  66% 2018-05-03 01:42 faf35901  lib/java_buildpack/component/modular_component.rb
+    2033  Defl:N      879  57% 2018-05-03 01:42 a277a2f4  lib/java_buildpack/component/mutable_java_home.rb
+    2023  Defl:N      871  57% 2018-05-03 01:42 6aae998e  lib/java_buildpack/component/networking.rb
+    1494  Defl:N      779  48% 2018-05-03 01:42 a1077fa7  lib/java_buildpack/component/security_providers.rb
+    4757  Defl:N     1285  73% 2018-05-03 01:42 076db469  lib/java_buildpack/component/services.rb
+    4647  Defl:N     1436  69% 2018-05-03 01:42 1f56b3b2  lib/java_buildpack/component/versioned_dependency_component.rb
+     862  Defl:N      505  41% 2018-05-03 01:42 dd636143  lib/java_buildpack/component.rb
+       0  Stored        0   0% 2018-05-03 01:42 00000000  lib/java_buildpack/container/
+    2095  Defl:N      898  57% 2018-05-03 01:42 df59a627  lib/java_buildpack/container/dist_zip.rb
+    3980  Defl:N     1336  66% 2018-05-03 01:42 47dacf4d  lib/java_buildpack/container/dist_zip_like.rb
+    4116  Defl:N     1376  67% 2018-05-03 01:42 db6bced9  lib/java_buildpack/container/groovy.rb
+    3545  Defl:N     1320  63% 2018-05-03 01:42 f6226808  lib/java_buildpack/container/java_main.rb
+    1830  Defl:N      799  56% 2018-05-03 01:42 ffc07858  lib/java_buildpack/container/play_framework.rb
+    1735  Defl:N      799  54% 2018-05-03 01:42 13f7f63f  lib/java_buildpack/container/ratpack.rb
+    1960  Defl:N      863  56% 2018-05-03 01:42 a879e190  lib/java_buildpack/container/spring_boot.rb
+    3550  Defl:N     1312  63% 2018-05-03 01:42 553fa917  lib/java_buildpack/container/spring_boot_cli.rb
+       0  Stored        0   0% 2018-05-03 01:42 00000000  lib/java_buildpack/container/tomcat/
+    1784  Defl:N      811  55% 2018-05-03 01:42 9d950f00  lib/java_buildpack/container/tomcat/tomcat_access_logging_support.rb
+    1446  Defl:N      673  54% 2018-05-03 01:42 439ab49f  lib/java_buildpack/container/tomcat/tomcat_external_configuration.rb
+    6901  Defl:N     2149  69% 2018-05-03 01:42 0eb3317d  lib/java_buildpack/container/tomcat/tomcat_geode_store.rb
+    1653  Defl:N      750  55% 2018-05-03 01:42 1b3d8811  lib/java_buildpack/container/tomcat/tomcat_insight_support.rb
+    3825  Defl:N     1501  61% 2018-05-03 01:42 5879f7af  lib/java_buildpack/container/tomcat/tomcat_instance.rb
+    1616  Defl:N      729  55% 2018-05-03 01:42 28fb6fcb  lib/java_buildpack/container/tomcat/tomcat_lifecycle_support.rb
+    1850  Defl:N      846  54% 2018-05-03 01:42 bcef84c2  lib/java_buildpack/container/tomcat/tomcat_logging_support.rb
+    3988  Defl:N     1410  65% 2018-05-03 01:42 36642859  lib/java_buildpack/container/tomcat/tomcat_redis_store.rb
+    2635  Defl:N     1025  61% 2018-05-03 01:42 3a6176fe  lib/java_buildpack/container/tomcat/tomcat_utils.rb
+    3416  Defl:N     1146  67% 2018-05-03 01:42 1fce1461  lib/java_buildpack/container/tomcat.rb
+     850  Defl:N      499  41% 2018-05-03 01:42 f95547f7  lib/java_buildpack/container.rb
+       0  Stored        0   0% 2018-05-03 01:42 00000000  lib/java_buildpack/framework/
+    4076  Defl:N     1206  70% 2018-05-03 01:42 5e070c00  lib/java_buildpack/framework/app_dynamics_agent.rb
+    2648  Defl:N     1068  60% 2018-05-03 01:42 e66f06bb  lib/java_buildpack/framework/aspectj_weaver_agent.rb
+    1559  Defl:N      709  55% 2018-05-03 01:42 7b077abc  lib/java_buildpack/framework/client_certificate_mapper.rb
+    1789  Defl:N      789  56% 2018-05-03 01:42 48e84164  lib/java_buildpack/framework/container_customizer.rb
+    2390  Defl:N      922  61% 2018-05-03 01:42 ae741c71  lib/java_buildpack/framework/container_security_provider.rb
+    5040  Defl:N     1669  67% 2018-05-03 01:42 a22a41e0  lib/java_buildpack/framework/contrast_security_agent.rb
+    1997  Defl:N      881  56% 2018-05-03 01:42 a3276b3b  lib/java_buildpack/framework/debug.rb
+    4129  Defl:N     1414  66% 2018-05-03 01:42 2afcf539  lib/java_buildpack/framework/dyadic_ekm_security_provider.rb
+    3373  Defl:N     1293  62% 2018-05-03 01:42 cc62b328  lib/java_buildpack/framework/dynatrace_appmon_agent.rb
+    6268  Defl:N     2164  66% 2018-05-03 01:42 8220da72  lib/java_buildpack/framework/dynatrace_one_agent.rb
+    2891  Defl:N     1139  61% 2018-05-03 01:42 2bc27420  lib/java_buildpack/framework/google_stackdriver_debugger.rb
+    4535  Defl:N     1446  68% 2018-05-03 01:42 9a9b4a18  lib/java_buildpack/framework/introscope_agent.rb
+    2172  Defl:N      945  57% 2018-05-03 01:42 2b0a1860  lib/java_buildpack/framework/jacoco_agent.rb
+       0  Stored        0   0% 2018-05-03 01:42 00000000  lib/java_buildpack/framework/java_memory_assistant/
+    3466  Defl:N     1332  62% 2018-05-03 01:42 0b6406f2  lib/java_buildpack/framework/java_memory_assistant/agent.rb
+    1893  Defl:N      843  56% 2018-05-03 01:42 253dc612  lib/java_buildpack/framework/java_memory_assistant/clean_up.rb
+    3304  Defl:N     1280  61% 2018-05-03 01:42 de90c270  lib/java_buildpack/framework/java_memory_assistant/heap_dump_folder.rb
+    1847  Defl:N      729  61% 2018-05-03 01:42 423208ad  lib/java_buildpack/framework/java_memory_assistant.rb
+    2246  Defl:N      980  56% 2018-05-03 01:42 8c6f0aa5  lib/java_buildpack/framework/java_opts.rb
+    1782  Defl:N      767  57% 2018-05-03 01:42 71f30833  lib/java_buildpack/framework/java_security.rb
+    2036  Defl:N      861  58% 2018-05-03 01:42 0f7a765e  lib/java_buildpack/framework/jmx.rb
+    2715  Defl:N     1114  59% 2018-05-03 01:42 6af5a726  lib/java_buildpack/framework/jrebel_agent.rb
+    7511  Defl:N     2182  71% 2018-05-03 01:42 2bf8e34d  lib/java_buildpack/framework/luna_security_provider.rb
+    1885  Defl:N      854  55% 2018-05-03 01:42 3973e55e  lib/java_buildpack/framework/maria_db_jdbc.rb
+    2404  Defl:N      973  60% 2018-05-03 01:42 19707cb2  lib/java_buildpack/framework/metric_writer.rb
+    9328  Defl:N     2132  77% 2018-05-03 01:42 137eade5  lib/java_buildpack/framework/multi_buildpack.rb
+    2924  Defl:N     1080  63% 2018-05-03 01:42 fac53d48  lib/java_buildpack/framework/new_relic_agent.rb
+    1761  Defl:N      786  55% 2018-05-03 01:42 7589e5fa  lib/java_buildpack/framework/postgresql_jdbc.rb
+    5145  Defl:N     1647  68% 2018-05-03 01:42 bc5fd5e6  lib/java_buildpack/framework/protect_app_security_provider.rb
+    3899  Defl:N     1240  68% 2018-05-03 01:42 547a9217  lib/java_buildpack/framework/sky_walking_agent.rb
+    1999  Defl:N      879  56% 2018-05-03 01:42 9ce636c1  lib/java_buildpack/framework/spring_auto_reconfiguration.rb
+    6744  Defl:N     2085  69% 2018-05-03 01:42 83061fe1  lib/java_buildpack/framework/spring_insight.rb
+    3453  Defl:N     1270  63% 2018-05-03 01:42 f7ba535e  lib/java_buildpack/framework/takipi_agent.rb
+    2569  Defl:N     1023  60% 2018-05-03 01:42 110c1675  lib/java_buildpack/framework/your_kit_profiler.rb
+     850  Defl:N      500  41% 2018-05-03 01:42 6821d3e8  lib/java_buildpack/framework.rb
+       0  Stored        0   0% 2018-05-03 01:42 00000000  lib/java_buildpack/jre/
+    1849  Defl:N      800  57% 2018-05-03 01:42 60bf06c7  lib/java_buildpack/jre/ibm_jre.rb
+    6094  Defl:N     2108  65% 2018-05-03 01:42 6f45090e  lib/java_buildpack/jre/ibm_jre_initializer.rb
+    2818  Defl:N     1144  59% 2018-05-03 01:42 90efd1a2  lib/java_buildpack/jre/jvmkill_agent.rb
+     972  Defl:N      560  42% 2018-05-03 01:42 0147f7ba  lib/java_buildpack/jre/open_jdk_jre.rb
+    2103  Defl:N      844  60% 2018-05-03 01:42 a256a390  lib/java_buildpack/jre/open_jdk_like.rb
+    3151  Defl:N     1307  59% 2018-05-03 01:42 ab99a8c3  lib/java_buildpack/jre/open_jdk_like_jre.rb
+    4668  Defl:N     1702  64% 2018-05-03 01:42 3b32959c  lib/java_buildpack/jre/open_jdk_like_memory_calculator.rb
+    2978  Defl:N     1065  64% 2018-05-03 01:42 1493e9e3  lib/java_buildpack/jre/open_jdk_like_security_providers.rb
+     970  Defl:N      561  42% 2018-05-03 01:42 11321119  lib/java_buildpack/jre/oracle_jre.rb
+     973  Defl:N      561  42% 2018-05-03 01:42 fedfb942  lib/java_buildpack/jre/sap_machine_jre.rb
+     961  Defl:N      557  42% 2018-05-03 01:42 c7a1174e  lib/java_buildpack/jre/zulu_jre.rb
+     838  Defl:N      495  41% 2018-05-03 01:42 964670e6  lib/java_buildpack/jre.rb
+       0  Stored        0   0% 2018-05-03 01:42 00000000  lib/java_buildpack/logging/
+    1740  Defl:N      812  53% 2018-05-03 01:42 a1cdc901  lib/java_buildpack/logging/delegating_logger.rb
+    5289  Defl:N     1752  67% 2018-05-03 01:42 2d4b60df  lib/java_buildpack/logging/logger_factory.rb
+     828  Defl:N      490  41% 2018-05-03 01:42 801a4b72  lib/java_buildpack/logging.rb
+       0  Stored        0   0% 2018-05-03 01:42 00000000  lib/java_buildpack/repository/
+    2904  Defl:N     1115  62% 2018-05-03 01:42 f9795656  lib/java_buildpack/repository/configured_item.rb
+    3530  Defl:N     1419  60% 2018-05-03 01:42 5e693804  lib/java_buildpack/repository/repository_index.rb
+    3533  Defl:N     1328  62% 2018-05-03 01:42 e421ee37  lib/java_buildpack/repository/version_resolver.rb
+     848  Defl:N      500  41% 2018-05-03 01:42 acbbead2  lib/java_buildpack/repository.rb
+       0  Stored        0   0% 2018-05-03 01:42 00000000  lib/java_buildpack/util/
+       0  Stored        0   0% 2018-05-03 01:42 00000000  lib/java_buildpack/util/cache/
+    2304  Defl:N      985  57% 2018-05-03 01:42 90f177a0  lib/java_buildpack/util/cache/application_cache.rb
+    4392  Defl:N     1282  71% 2018-05-03 01:42 3a589adc  lib/java_buildpack/util/cache/cached_file.rb
+    1691  Defl:N      724  57% 2018-05-03 01:42 61782784  lib/java_buildpack/util/cache/cache_factory.rb
+   13343  Defl:N     3761  72% 2018-05-03 01:42 c2b13323  lib/java_buildpack/util/cache/download_cache.rb
+     939  Defl:N      546  42% 2018-05-03 01:42 f8889203  lib/java_buildpack/util/cache/inferred_network_failure.rb
+    2945  Defl:N     1109  62% 2018-05-03 01:42 096d2f67  lib/java_buildpack/util/cache/internet_availability.rb
+    1058  Defl:N      611  42% 2018-05-03 01:42 8648254e  lib/java_buildpack/util/cache.rb
+    1408  Defl:N      731  48% 2018-05-03 01:42 c3a0bb51  lib/java_buildpack/util/class_file_utils.rb
+    3599  Defl:N      833  77% 2018-05-03 01:42 06f54662  lib/java_buildpack/util/colorize.rb
+    6930  Defl:N     1993  71% 2018-05-03 01:42 bd85ade9  lib/java_buildpack/util/configuration_utils.rb
+    1716  Defl:N      856  50% 2018-05-03 01:42 efa27596  lib/java_buildpack/util/constantize.rb
+    1097  Defl:N      630  43% 2018-05-03 01:42 1215a266  lib/java_buildpack/util/dash_case.rb
+    3373  Defl:N      934  72% 2018-05-03 01:42 375d193f  lib/java_buildpack/util/file_enumerable.rb
+    8071  Defl:N     2488  69% 2018-05-03 01:42 cba7e645  lib/java_buildpack/util/filtering_pathname.rb
+    1122  Defl:N      615  45% 2018-05-03 01:42 4a3f93ad  lib/java_buildpack/util/find_single_directory.rb
+    1887  Defl:N      847  55% 2018-05-03 01:42 c6057b18  lib/java_buildpack/util/format_duration.rb
+    2868  Defl:N     1049  63% 2018-05-03 01:42 b405e659  lib/java_buildpack/util/groovy_utils.rb
+    1810  Defl:N      809  55% 2018-05-03 01:42 de686b54  lib/java_buildpack/util/jar_finder.rb
+    2396  Defl:N      943  61% 2018-05-03 01:42 4d8b93e9  lib/java_buildpack/util/java_main_utils.rb
+       0  Stored        0   0% 2018-05-03 01:42 00000000  lib/java_buildpack/util/play/
+    4807  Defl:N     1629  66% 2018-05-03 01:42 0a9b1c16  lib/java_buildpack/util/play/base.rb
+    1914  Defl:N      824  57% 2018-05-03 01:42 836d08f9  lib/java_buildpack/util/play/factory.rb
+    2282  Defl:N      965  58% 2018-05-03 01:42 32d84cfb  lib/java_buildpack/util/play/post22.rb
+    1022  Defl:N      581  43% 2018-05-03 01:42 c9147f25  lib/java_buildpack/util/play/post22_dist.rb
+    1090  Defl:N      597  45% 2018-05-03 01:42 2a8da2a4  lib/java_buildpack/util/play/post22_staged.rb
+    1439  Defl:N      701  51% 2018-05-03 01:42 1e954db8  lib/java_buildpack/util/play/pre22.rb
+    1690  Defl:N      822  51% 2018-05-03 01:42 6d7a5d73  lib/java_buildpack/util/play/pre22_dist.rb
+    1383  Defl:N      668  52% 2018-05-03 01:42 bc82eb87  lib/java_buildpack/util/play/pre22_staged.rb
+     885  Defl:N      516  42% 2018-05-03 01:42 eb8c6d4e  lib/java_buildpack/util/play.rb
+    1719  Defl:N      850  51% 2018-05-03 01:42 7229c5bd  lib/java_buildpack/util/properties.rb
+    1212  Defl:N      669  45% 2018-05-03 01:42 29ddebc0  lib/java_buildpack/util/qualify_path.rb
+    1009  Defl:N      567  44% 2018-05-03 01:42 cccc61c2  lib/java_buildpack/util/ratpack_utils.rb
+    1023  Defl:N      580  43% 2018-05-03 01:42 88313665  lib/java_buildpack/util/sanitizer.rb
+    1451  Defl:N      763  47% 2018-05-03 01:42 2f354865  lib/java_buildpack/util/shell.rb
+    1115  Defl:N      631  43% 2018-05-03 01:42 93ed509b  lib/java_buildpack/util/snake_case.rb
+    1107  Defl:N      630  43% 2018-05-03 01:42 c6183e4c  lib/java_buildpack/util/space_case.rb
+    3188  Defl:N     1038  67% 2018-05-03 01:42 246c6137  lib/java_buildpack/util/spring_boot_utils.rb
+    1436  Defl:N      760  47% 2018-05-03 01:42 00100480  lib/java_buildpack/util/start_script.rb
+    5511  Defl:N     1831  67% 2018-05-03 01:42 647ca394  lib/java_buildpack/util/tokenized_version.rb
+    1131  Defl:N      587  48% 2018-05-03 01:42 09146616  lib/java_buildpack/util/to_b.rb
+     837  Defl:N      494  41% 2018-05-03 01:42 111c58ad  lib/java_buildpack/util.rb
+     773  Defl:N      460  41% 2018-05-03 01:42 d12ee1cd  lib/java_buildpack.rb
+   11560  Defl:N     3963  66% 2018-05-03 01:42 495fc599  LICENSE
+     651  Defl:N      413  37% 2018-05-03 01:42 cd000e69  NOTICE
+       0  Stored        0   0% 2018-05-03 01:42 00000000  resources/
+       0  Stored        0   0% 2018-05-03 01:42 00000000  resources/cache/
+ 8372877  Defl:N  8374084   0% 2018-05-03 01:42 13767c45  resources/cache/012f31790dbf6a6d8a5dd4859f0c67b3deb2e68c6f2ea81152a7f7c52c86c29c.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 29da69c4  resources/cache/012f31790dbf6a6d8a5dd4859f0c67b3deb2e68c6f2ea81152a7f7c52c86c29c.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 d766e071  resources/cache/012f31790dbf6a6d8a5dd4859f0c67b3deb2e68c6f2ea81152a7f7c52c86c29c.last_modified
+    5149  Defl:N      422  92% 2018-05-03 01:42 434f0b0e  resources/cache/06e39cddcbd90ad303ff803a925d6614266c3d55f875c5f1ca2c4180056d5b04.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 8c480796  resources/cache/06e39cddcbd90ad303ff803a925d6614266c3d55f875c5f1ca2c4180056d5b04.etag
+      29  Defl:N       29   0% 2018-05-03 01:42 1d39a677  resources/cache/06e39cddcbd90ad303ff803a925d6614266c3d55f875c5f1ca2c4180056d5b04.last_modified
+    2255  Defl:N      203  91% 2018-05-03 01:42 dde502be  resources/cache/0aa5aaccda0ee0cf23328dbfe0e3aaced7128eede2a52674d9a707ba1f769594.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 8f9f4bb8  resources/cache/0aa5aaccda0ee0cf23328dbfe0e3aaced7128eede2a52674d9a707ba1f769594.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 1036ad34  resources/cache/0aa5aaccda0ee0cf23328dbfe0e3aaced7128eede2a52674d9a707ba1f769594.last_modified
+ 5612375  Defl:N  5490506   2% 2018-05-03 01:42 6168257b  resources/cache/0abfa49f6f87641fa93b849f727fa9175a4e2cfb4d3a1eee81cc2dd3e04edecb.cached
+      22  Defl:N       24  -9% 2018-05-03 01:42 8ee59a00  resources/cache/0abfa49f6f87641fa93b849f727fa9175a4e2cfb4d3a1eee81cc2dd3e04edecb.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 2f8b1c4b  resources/cache/0abfa49f6f87641fa93b849f727fa9175a4e2cfb4d3a1eee81cc2dd3e04edecb.last_modified
+ 1456276  Defl:N  1202463  17% 2018-05-03 01:42 1df05e28  resources/cache/0d9a3825a3f2f10b8047d6a35ce6d7ed204e8687323d465833964db950bb12d9.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 71fcb028  resources/cache/0d9a3825a3f2f10b8047d6a35ce6d7ed204e8687323d465833964db950bb12d9.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 23517e22  resources/cache/0d9a3825a3f2f10b8047d6a35ce6d7ed204e8687323d465833964db950bb12d9.last_modified
+35040750  Defl:N 35042505   0% 2018-05-03 01:42 79cad284  resources/cache/10f268aefeacbc978ad4f91f75b2197f2b52d2271e84ca5c5c5a4796b1889fad.cached
+      29  Defl:N       31  -7% 2018-05-03 01:42 299523b5  resources/cache/10f268aefeacbc978ad4f91f75b2197f2b52d2271e84ca5c5c5a4796b1889fad.last_modified
+    3340  Defl:N      298  91% 2018-05-03 01:42 85025c6b  resources/cache/14273d477595b2c1a79425a9f2f62438bef203246a8342165cc1b9aa9e215534.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 b339bb57  resources/cache/14273d477595b2c1a79425a9f2f62438bef203246a8342165cc1b9aa9e215534.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 c21bc48e  resources/cache/14273d477595b2c1a79425a9f2f62438bef203246a8342165cc1b9aa9e215534.last_modified
+    1111  Defl:N      145  87% 2018-05-03 01:42 20a7cfe6  resources/cache/1622c67ee2c8f25382a7d1e7d44040a876be7acc6379c2b411032aa4705b4364.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 55184425  resources/cache/1622c67ee2c8f25382a7d1e7d44040a876be7acc6379c2b411032aa4705b4364.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 8dafb444  resources/cache/1622c67ee2c8f25382a7d1e7d44040a876be7acc6379c2b411032aa4705b4364.last_modified
+ 4400282  Defl:N  4401348   0% 2018-05-03 01:42 d9c0c273  resources/cache/1874804e460c83a99a743deafd8fe90a17d6004bd183a69bd8c5c7c5697dd36f.cached
+      17  Defl:N       19 -12% 2018-05-03 01:42 ec2a7c95  resources/cache/1874804e460c83a99a743deafd8fe90a17d6004bd183a69bd8c5c7c5697dd36f.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 884e852a  resources/cache/1874804e460c83a99a743deafd8fe90a17d6004bd183a69bd8c5c7c5697dd36f.last_modified
+ 9541892  Defl:N  9543073   0% 2018-05-03 01:42 d7b982df  resources/cache/195a7562aeb693844c2bf82dd8d28dbe0c39c9dbd9cd778d3726f3cb83841094.cached
+      36  Defl:N       38  -6% 2018-05-03 01:42 b508f40b  resources/cache/195a7562aeb693844c2bf82dd8d28dbe0c39c9dbd9cd778d3726f3cb83841094.etag
+      29  Defl:N       28   3% 2018-05-03 01:42 3999c387  resources/cache/195a7562aeb693844c2bf82dd8d28dbe0c39c9dbd9cd778d3726f3cb83841094.last_modified
+     219  Defl:N       69  69% 2018-05-03 01:42 8866216a  resources/cache/1b93ddb3abddc3a789c071eedb5152fb3effeaf96e175095b9189de5be607baa.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 6f018568  resources/cache/1b93ddb3abddc3a789c071eedb5152fb3effeaf96e175095b9189de5be607baa.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 b6944af7  resources/cache/1b93ddb3abddc3a789c071eedb5152fb3effeaf96e175095b9189de5be607baa.last_modified
+   11802  Defl:N      918  92% 2018-05-03 01:42 d68a59ca  resources/cache/1e2537ce3a4c82b2445883f6653cc2052f4c96822803e495789e225cb8eb28e3.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 9bd7cf86  resources/cache/1e2537ce3a4c82b2445883f6653cc2052f4c96822803e495789e225cb8eb28e3.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 a6944700  resources/cache/1e2537ce3a4c82b2445883f6653cc2052f4c96822803e495789e225cb8eb28e3.last_modified
+     202  Defl:N      124  39% 2018-05-03 01:42 d9ef4c68  resources/cache/237f6db64548447cb35475824e3cd3ea53fea627671867cb2c33ae3285afa16c.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 d8179671  resources/cache/237f6db64548447cb35475824e3cd3ea53fea627671867cb2c33ae3285afa16c.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 a6da9983  resources/cache/237f6db64548447cb35475824e3cd3ea53fea627671867cb2c33ae3285afa16c.last_modified
+    5856  Defl:N      414  93% 2018-05-03 01:42 0e283701  resources/cache/25b3891f1ecdff44591cc992c5e2c3e1548608f0fdfc0c9466854b114efde985.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 053fc62a  resources/cache/25b3891f1ecdff44591cc992c5e2c3e1548608f0fdfc0c9466854b114efde985.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 4ab312c6  resources/cache/25b3891f1ecdff44591cc992c5e2c3e1548608f0fdfc0c9466854b114efde985.last_modified
+    6553  Defl:N      561  91% 2018-05-03 01:42 34bda402  resources/cache/2caf3496f3da415f0726e532b66cf0d86d40bdc7f5e7719a45c96b7cd128e091.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 ef96f15f  resources/cache/2caf3496f3da415f0726e532b66cf0d86d40bdc7f5e7719a45c96b7cd128e091.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 17f020d8  resources/cache/2caf3496f3da415f0726e532b66cf0d86d40bdc7f5e7719a45c96b7cd128e091.last_modified
+    3466  Defl:N      269  92% 2018-05-03 01:42 e9a8acdb  resources/cache/31a46025e64b8f3c3b8050fd124871a27495984da143159ad13357c8b421e254.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 1c98adf0  resources/cache/31a46025e64b8f3c3b8050fd124871a27495984da143159ad13357c8b421e254.etag
+      29  Defl:N       30  -3% 2018-05-03 01:42 9171a232  resources/cache/31a46025e64b8f3c3b8050fd124871a27495984da143159ad13357c8b421e254.last_modified
+    9177  Defl:N     1056  89% 2018-05-03 01:42 5d6330ee  resources/cache/38945dd759f1f5c93da17451e32988acee3fa83ecbf3a4fb2322d95e61ad53f1.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 5aea9eef  resources/cache/38945dd759f1f5c93da17451e32988acee3fa83ecbf3a4fb2322d95e61ad53f1.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 682db89d  resources/cache/38945dd759f1f5c93da17451e32988acee3fa83ecbf3a4fb2322d95e61ad53f1.last_modified
+    1269  Defl:N      153  88% 2018-05-03 01:42 1cdd9f89  resources/cache/3967f032b37cc9302df47b1bfdf7d7d2d255459a726d3a3447c6a808c93e668c.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 32cc389d  resources/cache/3967f032b37cc9302df47b1bfdf7d7d2d255459a726d3a3447c6a808c93e668c.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 520ee7cf  resources/cache/3967f032b37cc9302df47b1bfdf7d7d2d255459a726d3a3447c6a808c93e668c.last_modified
+    3662  Defl:N      325  91% 2018-05-03 01:42 abae6119  resources/cache/3a3354ed7b3c3e14c7c0d1cb2e2967464ab162e6a102e239ceec30de269d7ead.cached
+      34  Defl:N       35  -3% 2018-05-03 01:42 22659979  resources/cache/3a3354ed7b3c3e14c7c0d1cb2e2967464ab162e6a102e239ceec30de269d7ead.etag
+      29  Defl:N       29   0% 2018-05-03 01:42 85e9bce9  resources/cache/3a3354ed7b3c3e14c7c0d1cb2e2967464ab162e6a102e239ceec30de269d7ead.last_modified
+ 9209478  Defl:N  8008598  13% 2018-05-03 01:42 eec5994c  resources/cache/3ab9f959286eadacb2e13b97f538cf71da4af8f532f50d133da2f0df03c8fcb3.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 cc6f5193  resources/cache/3ab9f959286eadacb2e13b97f538cf71da4af8f532f50d133da2f0df03c8fcb3.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 cc9748f9  resources/cache/3ab9f959286eadacb2e13b97f538cf71da4af8f532f50d133da2f0df03c8fcb3.last_modified
+     796  Defl:N      135  83% 2018-05-03 01:42 35e4b337  resources/cache/4134c448e8ff921d5da385317a359a37c9ed3cf026f4d0a59615cacf275109e2.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 107c0bd8  resources/cache/4134c448e8ff921d5da385317a359a37c9ed3cf026f4d0a59615cacf275109e2.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 783f7bc0  resources/cache/4134c448e8ff921d5da385317a359a37c9ed3cf026f4d0a59615cacf275109e2.last_modified
+     116  Defl:N      106   9% 2018-05-03 01:42 f4a97368  resources/cache/42b8e50e76f207a4fffe4b2d48418fc1e556f81430f95883c2ef33736f2b8ac2.cached
+      42  Defl:N       42   0% 2018-05-03 01:42 0ef515f6  resources/cache/42b8e50e76f207a4fffe4b2d48418fc1e556f81430f95883c2ef33736f2b8ac2.etag
+    3659  Defl:N      310  92% 2018-05-03 01:42 bd7e5096  resources/cache/430b6fc75b415d09b39a16b2cc7d6d964d75bc16269bb4a47e013801e2098bb8.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 7d9508ca  resources/cache/430b6fc75b415d09b39a16b2cc7d6d964d75bc16269bb4a47e013801e2098bb8.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 0779dcb9  resources/cache/430b6fc75b415d09b39a16b2cc7d6d964d75bc16269bb4a47e013801e2098bb8.last_modified
+   33482  Defl:N    26739  20% 2018-05-03 01:42 bc878d44  resources/cache/4389d395c7fe15ef03abab433e1f1b06e39fe5f98d7cefbdcdd46a4098ce9c95.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 c9934ae7  resources/cache/4389d395c7fe15ef03abab433e1f1b06e39fe5f98d7cefbdcdd46a4098ce9c95.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 ee2d77b7  resources/cache/4389d395c7fe15ef03abab433e1f1b06e39fe5f98d7cefbdcdd46a4098ce9c95.last_modified
+  790636  Defl:N   788178   0% 2018-05-03 01:42 80a4c987  resources/cache/44f5548999b0b23ebf66c195c04fab3bd9bcc52ab8fe209d49e81c7c626be2b9.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 b820b33e  resources/cache/44f5548999b0b23ebf66c195c04fab3bd9bcc52ab8fe209d49e81c7c626be2b9.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 e5b60bf4  resources/cache/44f5548999b0b23ebf66c195c04fab3bd9bcc52ab8fe209d49e81c7c626be2b9.last_modified
+     334  Defl:N      111  67% 2018-05-03 01:42 df138e70  resources/cache/50fe0660e1baa96b332b26bc9fdecabdf11c9206015da4f6071bf8c5f44db74d.cached
+      42  Defl:N       41   2% 2018-05-03 01:42 8bfc739d  resources/cache/50fe0660e1baa96b332b26bc9fdecabdf11c9206015da4f6071bf8c5f44db74d.etag
+17339341  Defl:N 17305641   0% 2018-05-03 01:42 610f1272  resources/cache/5d0803117079a1f013aa9613c4c370eff504caab814d552e32936ecdc02a9568.cached
+      36  Defl:N       38  -6% 2018-05-03 01:42 a6f3efae  resources/cache/5d0803117079a1f013aa9613c4c370eff504caab814d552e32936ecdc02a9568.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 78b10b1a  resources/cache/5d0803117079a1f013aa9613c4c370eff504caab814d552e32936ecdc02a9568.last_modified
+    5815  Defl:N     4214  28% 2018-05-03 01:42 8d321d3e  resources/cache/5fb58dd884c3ceb8085fccf925b049ecc4ba4f99fa368cbef0ce9d6beb580c71.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 baa0aa84  resources/cache/5fb58dd884c3ceb8085fccf925b049ecc4ba4f99fa368cbef0ce9d6beb580c71.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 72c9a3ce  resources/cache/5fb58dd884c3ceb8085fccf925b049ecc4ba4f99fa368cbef0ce9d6beb580c71.last_modified
+    1317  Defl:N      159  88% 2018-05-03 01:42 5efe218d  resources/cache/6822277f62f332698bfbda421c64c6516c2d3dffa75fac8f85f9423a7f051264.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 f810904d  resources/cache/6822277f62f332698bfbda421c64c6516c2d3dffa75fac8f85f9423a7f051264.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 1501efd3  resources/cache/6822277f62f332698bfbda421c64c6516c2d3dffa75fac8f85f9423a7f051264.last_modified
+ 2104552  Defl:N   525975  75% 2018-05-03 01:42 6f964b01  resources/cache/6be091bb147ec1df72feba9d72702ecad23146ea71216774f15156fe6ac99ad6.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 da4ffcc4  resources/cache/6be091bb147ec1df72feba9d72702ecad23146ea71216774f15156fe6ac99ad6.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 59840393  resources/cache/6be091bb147ec1df72feba9d72702ecad23146ea71216774f15156fe6ac99ad6.last_modified
+      89  Defl:N       75  16% 2018-05-03 01:42 b6cd8089  resources/cache/6c0bb681022a1cc3c8bcaad0842722fe1ec4d04ac2b1c0262901985192a51e93.cached
+      40  Defl:N       39   3% 2018-05-03 01:42 614379cc  resources/cache/6c0bb681022a1cc3c8bcaad0842722fe1ec4d04ac2b1c0262901985192a51e93.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 d9219b7a  resources/cache/6c0bb681022a1cc3c8bcaad0842722fe1ec4d04ac2b1c0262901985192a51e93.last_modified
+  680445  Defl:N   647309   5% 2018-05-03 01:42 fa71f6c8  resources/cache/6d4f7c16de70953e9db58ec80e132fe8f2f37c058d09403029919ae938bd5aa2.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 0e1b3199  resources/cache/6d4f7c16de70953e9db58ec80e132fe8f2f37c058d09403029919ae938bd5aa2.etag
+      29  Defl:N       29   0% 2018-05-03 01:42 30c25cd1  resources/cache/6d4f7c16de70953e9db58ec80e132fe8f2f37c058d09403029919ae938bd5aa2.last_modified
+50934272  Defl:N 42989452  16% 2018-05-03 01:42 24f03938  resources/cache/72c8c27107410c30999fea147e8f927427f8881ce818d779123834760cfa4ac3.cached
+      52  Defl:N       50   4% 2018-05-03 01:42 8520c84a  resources/cache/72c8c27107410c30999fea147e8f927427f8881ce818d779123834760cfa4ac3.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 2a3c719c  resources/cache/72c8c27107410c30999fea147e8f927427f8881ce818d779123834760cfa4ac3.last_modified
+14182400  Defl:N  5218532  63% 2018-05-03 01:42 cbbe8a71  resources/cache/761e9fdc5b11e079c5a90439054c9a86820a08149adf016ef38330691963de3c.cached
+      17  Defl:N       19 -12% 2018-05-03 01:42 a3b2b868  resources/cache/761e9fdc5b11e079c5a90439054c9a86820a08149adf016ef38330691963de3c.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 179644b4  resources/cache/761e9fdc5b11e079c5a90439054c9a86820a08149adf016ef38330691963de3c.last_modified
+ 3659024  Defl:N  1293900  65% 2018-05-03 01:42 53e0a59b  resources/cache/778aef875e89166764a7818b8a2d54679f2259f2616f28d4d0fa54c7a86032e1.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 5f89756e  resources/cache/778aef875e89166764a7818b8a2d54679f2259f2616f28d4d0fa54c7a86032e1.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 9c8d572f  resources/cache/778aef875e89166764a7818b8a2d54679f2259f2616f28d4d0fa54c7a86032e1.last_modified
+36480487  Defl:N 36477651   0% 2018-05-03 01:42 97020af7  resources/cache/7b0ec8035222c9d9649631708ac788cd8a0f9c967d0c6fbe113bf1ba96427c74.cached
+      36  Defl:N       38  -6% 2018-05-03 01:42 cdd7ea4c  resources/cache/7b0ec8035222c9d9649631708ac788cd8a0f9c967d0c6fbe113bf1ba96427c74.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 ac32efc5  resources/cache/7b0ec8035222c9d9649631708ac788cd8a0f9c967d0c6fbe113bf1ba96427c74.last_modified
+31318727  Defl:N 30848501   2% 2018-05-03 01:42 7d5deee0  resources/cache/7d9c3558bb2cb6f10c139563f073016b228a9450e9c9226912d6157824a0f9a0.cached
+      36  Defl:N       38  -6% 2018-05-03 01:42 57a301c9  resources/cache/7d9c3558bb2cb6f10c139563f073016b228a9450e9c9226912d6157824a0f9a0.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 3fa6b1dd  resources/cache/7d9c3558bb2cb6f10c139563f073016b228a9450e9c9226912d6157824a0f9a0.last_modified
+  116600  Defl:N   102111  12% 2018-05-03 01:42 5f67ac97  resources/cache/82f02c57c6c91fa194606fe8095b4a364a117aac7c17e4d396eff5795943540a.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 03e52b7b  resources/cache/82f02c57c6c91fa194606fe8095b4a364a117aac7c17e4d396eff5795943540a.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 5062b11c  resources/cache/82f02c57c6c91fa194606fe8095b4a364a117aac7c17e4d396eff5795943540a.last_modified
+     935  Defl:N      145  85% 2018-05-03 01:42 8db7235b  resources/cache/871eacc382b43f3867e2c1b50fa214560181c6d14292789462ab6b021bf3c908.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 88cb8e50  resources/cache/871eacc382b43f3867e2c1b50fa214560181c6d14292789462ab6b021bf3c908.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 da94f6cc  resources/cache/871eacc382b43f3867e2c1b50fa214560181c6d14292789462ab6b021bf3c908.last_modified
+18184731  Defl:N 18097616   1% 2018-05-03 01:42 dac33254  resources/cache/8ac6b28943d947cf9b0c7a4922f20d899944f6d4a1a9f23b8dcdde5c435076d4.cached
+      36  Defl:N       38  -6% 2018-05-03 01:42 6b688055  resources/cache/8ac6b28943d947cf9b0c7a4922f20d899944f6d4a1a9f23b8dcdde5c435076d4.etag
+      29  Defl:N       27   7% 2018-05-03 01:42 79c7d054  resources/cache/8ac6b28943d947cf9b0c7a4922f20d899944f6d4a1a9f23b8dcdde5c435076d4.last_modified
+  227483  Defl:N   226617   0% 2018-05-03 01:42 e56b86e5  resources/cache/8ba31abe67a1e8035719f691288d802e359ac688fece666965e64bb12aad2570.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 ac3a3741  resources/cache/8ba31abe67a1e8035719f691288d802e359ac688fece666965e64bb12aad2570.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 74eb9415  resources/cache/8ba31abe67a1e8035719f691288d802e359ac688fece666965e64bb12aad2570.last_modified
+ 4836075  Defl:N  4831793   0% 2018-05-03 01:42 cd53957e  resources/cache/933965fded5b63324147dccaa9e2f972d0c34f4163ab8324422089f78d4eb269.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 c5c73610  resources/cache/933965fded5b63324147dccaa9e2f972d0c34f4163ab8324422089f78d4eb269.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 b0dff4b0  resources/cache/933965fded5b63324147dccaa9e2f972d0c34f4163ab8324422089f78d4eb269.last_modified
+    3656  Defl:N     2196  40% 2018-05-03 01:42 0df0b27e  resources/cache/94701251648f488d29aab73687260365357a528608571adf5886be580f7833ae.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 b62b9b86  resources/cache/94701251648f488d29aab73687260365357a528608571adf5886be580f7833ae.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 55d4036c  resources/cache/94701251648f488d29aab73687260365357a528608571adf5886be580f7833ae.last_modified
+    1071  Defl:N      148  86% 2018-05-03 01:42 c75570d7  resources/cache/9543a7a10113c7de1289299a21f10aab712702a906bf46a158bdd72845d89fea.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 fe5422f2  resources/cache/9543a7a10113c7de1289299a21f10aab712702a906bf46a158bdd72845d89fea.etag
+      29  Defl:N       28   3% 2018-05-03 01:42 b00ae3d2  resources/cache/9543a7a10113c7de1289299a21f10aab712702a906bf46a158bdd72845d89fea.last_modified
+32008644  Defl:N 32017998   0% 2018-05-03 01:42 001a2c9c  resources/cache/96eb5159a315b5293f242b1dcb2dd6cdd23b4f648ae69833e239d9d63c8f9448.cached
+      40  Defl:N       40   0% 2018-05-03 01:42 56c48522  resources/cache/96eb5159a315b5293f242b1dcb2dd6cdd23b4f648ae69833e239d9d63c8f9448.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 9cf3b560  resources/cache/96eb5159a315b5293f242b1dcb2dd6cdd23b4f648ae69833e239d9d63c8f9448.last_modified
+     879  Defl:N      132  85% 2018-05-03 01:42 3cb968cd  resources/cache/973042c20a469b1c3338a65a3700f6601195904726d973ca435f99c599828b2c.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 3ee02053  resources/cache/973042c20a469b1c3338a65a3700f6601195904726d973ca435f99c599828b2c.etag
+      29  Defl:N       29   0% 2018-05-03 01:42 406a12db  resources/cache/973042c20a469b1c3338a65a3700f6601195904726d973ca435f99c599828b2c.last_modified
+27100293  Defl:N 26910693   1% 2018-05-03 01:42 764294d4  resources/cache/9b550374ed1d8124fef701947428b541b3bb285ee6336e002d4a8ba80ddf57c8.cached
+      34  Defl:N       34   0% 2018-05-03 01:42 df48bd84  resources/cache/9b550374ed1d8124fef701947428b541b3bb285ee6336e002d4a8ba80ddf57c8.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 ee1e6db9  resources/cache/9b550374ed1d8124fef701947428b541b3bb285ee6336e002d4a8ba80ddf57c8.last_modified
+     955  Defl:N      186  81% 2018-05-03 01:42 796b36ca  resources/cache/9d2138c925275964d4b5257e199c7a3670e0e97cd26edb9dea1996250fa5227d.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 b20bedc8  resources/cache/9d2138c925275964d4b5257e199c7a3670e0e97cd26edb9dea1996250fa5227d.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 cc9748f9  resources/cache/9d2138c925275964d4b5257e199c7a3670e0e97cd26edb9dea1996250fa5227d.last_modified
+  566457  Defl:N   531378   6% 2018-05-03 01:42 41d91ff9  resources/cache/a5750f2cd2796a1481d49bcfeb6d952c49d59b8f5862dc802f02168ca20090a2.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 4883276b  resources/cache/a5750f2cd2796a1481d49bcfeb6d952c49d59b8f5862dc802f02168ca20090a2.etag
+      29  Defl:N       29   0% 2018-05-03 01:42 0aa94949  resources/cache/a5750f2cd2796a1481d49bcfeb6d952c49d59b8f5862dc802f02168ca20090a2.last_modified
+      80  Defl:N       69  14% 2018-05-03 01:42 9b165188  resources/cache/a5962358ad2790f0ad71e3eb3b7f7512f46c7b6b4b17aaa62fede771e717db08.cached
+      13  Defl:N       15 -15% 2018-05-03 01:42 613c5039  resources/cache/a5962358ad2790f0ad71e3eb3b7f7512f46c7b6b4b17aaa62fede771e717db08.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 a27d25b9  resources/cache/a5962358ad2790f0ad71e3eb3b7f7512f46c7b6b4b17aaa62fede771e717db08.last_modified
+    1818  Defl:N      171  91% 2018-05-03 01:42 fc199644  resources/cache/aa5a719f5c9fe2a838d2383349286159242864fd35f4877157c13e7c8895a52c.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 64296cbe  resources/cache/aa5a719f5c9fe2a838d2383349286159242864fd35f4877157c13e7c8895a52c.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 394e0acd  resources/cache/aa5a719f5c9fe2a838d2383349286159242864fd35f4877157c13e7c8895a52c.last_modified
+    4079  Defl:N      377  91% 2018-05-03 01:42 a5ff50b4  resources/cache/abb7aac3fd9fe7e3449ec99ef9529b049cef17a1304d0ba6c4d4820fe0aff23b.cached
+      14  Defl:N       16 -14% 2018-05-03 01:42 a15f545f  resources/cache/abb7aac3fd9fe7e3449ec99ef9529b049cef17a1304d0ba6c4d4820fe0aff23b.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 f1f19ee2  resources/cache/abb7aac3fd9fe7e3449ec99ef9529b049cef17a1304d0ba6c4d4820fe0aff23b.last_modified
+16804864  Defl:N 14414032  14% 2018-05-03 01:42 5f786e1a  resources/cache/ae88cc0eedb931ee571176d0f0f36c7183fdedf0d5f16d7c704d2a75d313a736.cached
+      36  Defl:N       38  -6% 2018-05-03 01:42 29c8679a  resources/cache/ae88cc0eedb931ee571176d0f0f36c7183fdedf0d5f16d7c704d2a75d313a736.etag
+      29  Defl:N       29   0% 2018-05-03 01:42 c8cab415  resources/cache/ae88cc0eedb931ee571176d0f0f36c7183fdedf0d5f16d7c704d2a75d313a736.last_modified
+      88  Defl:N       76  14% 2018-05-03 01:42 4b7c831c  resources/cache/b4d4945680e7f932d7af8e72ce447ade4214ff38857c284b2c67a0ffcf0c13b9.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 235a306c  resources/cache/b4d4945680e7f932d7af8e72ce447ade4214ff38857c284b2c67a0ffcf0c13b9.etag
+      29  Defl:N       29   0% 2018-05-03 01:42 3d4a12d5  resources/cache/b4d4945680e7f932d7af8e72ce447ade4214ff38857c284b2c67a0ffcf0c13b9.last_modified
+     217  Defl:N       85  61% 2018-05-03 01:42 c9fc9879  resources/cache/b53777be1f2db1c22b4458ca84a97b422fd0ed7b09870b3ebff7fcbe802284eb.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 0d35d8c2  resources/cache/b53777be1f2db1c22b4458ca84a97b422fd0ed7b09870b3ebff7fcbe802284eb.etag
+      29  Defl:N       29   0% 2018-05-03 01:42 f6bb03c4  resources/cache/b53777be1f2db1c22b4458ca84a97b422fd0ed7b09870b3ebff7fcbe802284eb.last_modified
+    1304  Defl:N      166  87% 2018-05-03 01:42 88e0aa27  resources/cache/ba3d15df3d7ca895d0e3f02450268e3bc7d1195888d8f14bb3d9cdf0e0482956.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 8cc5d4fd  resources/cache/ba3d15df3d7ca895d0e3f02450268e3bc7d1195888d8f14bb3d9cdf0e0482956.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 9c74ee92  resources/cache/ba3d15df3d7ca895d0e3f02450268e3bc7d1195888d8f14bb3d9cdf0e0482956.last_modified
+     830  Defl:N      168  80% 2018-05-03 01:42 a0f36823  resources/cache/c514579214e5b564c9a430bafd3a4e03ca4a267c75ad27d0f7f8a2242b4b7d2d.cached
+      64  Defl:N       51  20% 2018-05-03 01:42 c07f8dae  resources/cache/c514579214e5b564c9a430bafd3a4e03ca4a267c75ad27d0f7f8a2242b4b7d2d.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 a974f1bf  resources/cache/c514579214e5b564c9a430bafd3a4e03ca4a267c75ad27d0f7f8a2242b4b7d2d.last_modified
+    3652  Defl:N      604  84% 2018-05-03 01:42 92361195  resources/cache/ca58c21027ccecb4e0e4ecec27ec46f4d0a50463e1c6caea2a5e0cf138731ffd.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 2f4cd6a1  resources/cache/ca58c21027ccecb4e0e4ecec27ec46f4d0a50463e1c6caea2a5e0cf138731ffd.etag
+      29  Defl:N       29   0% 2018-05-03 01:42 c85b5091  resources/cache/ca58c21027ccecb4e0e4ecec27ec46f4d0a50463e1c6caea2a5e0cf138731ffd.last_modified
+10612298  Defl:N  9495456  11% 2018-05-03 01:42 5eb754e9  resources/cache/d3884b2eab1b4893392ee43f8788eaad18496f4710cc40bfa86294c5653e8768.cached
+      36  Defl:N       38  -6% 2018-05-03 01:42 01cd0e22  resources/cache/d3884b2eab1b4893392ee43f8788eaad18496f4710cc40bfa86294c5653e8768.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 f0b96cbe  resources/cache/d3884b2eab1b4893392ee43f8788eaad18496f4710cc40bfa86294c5653e8768.last_modified
+    1075  Defl:N      144  87% 2018-05-03 01:42 cbdde65e  resources/cache/d5fdfc963781cad9c13a16daca5727232a3e24c28ac7cd7b8b6a1b28f6ad44ea.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 25c1871e  resources/cache/d5fdfc963781cad9c13a16daca5727232a3e24c28ac7cd7b8b6a1b28f6ad44ea.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 c42d9aa1  resources/cache/d5fdfc963781cad9c13a16daca5727232a3e24c28ac7cd7b8b6a1b28f6ad44ea.last_modified
+    5945  Defl:N     4340  27% 2018-05-03 01:42 0338aedf  resources/cache/d7d3ea28bd9e1bd448d8633a6c92751aa972b1a49399504493feb49304bd76b6.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 008ecd98  resources/cache/d7d3ea28bd9e1bd448d8633a6c92751aa972b1a49399504493feb49304bd76b6.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 3f8f6854  resources/cache/d7d3ea28bd9e1bd448d8633a6c92751aa972b1a49399504493feb49304bd76b6.last_modified
+ 2170799  Defl:N  2164080   0% 2018-05-03 01:42 10981a57  resources/cache/dd065d803a7ab24118d3ef128b9888041600a8cfb4badadc61421f109416d86e.cached
+      34  Defl:N       34   0% 2018-05-03 01:42 d02bb28d  resources/cache/dd065d803a7ab24118d3ef128b9888041600a8cfb4badadc61421f109416d86e.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 6442cc6d  resources/cache/dd065d803a7ab24118d3ef128b9888041600a8cfb4badadc61421f109416d86e.last_modified
+45273947  Defl:N 45028547   1% 2018-05-03 01:42 c7d868a3  resources/cache/eb2bff36a96f4d2471774749387395da1a0c925eda45335d3cf1bcaddfbaf8a8.cached
+      36  Defl:N       38  -6% 2018-05-03 01:42 d964d72c  resources/cache/eb2bff36a96f4d2471774749387395da1a0c925eda45335d3cf1bcaddfbaf8a8.etag
+      29  Defl:N       29   0% 2018-05-03 01:42 eb055c62  resources/cache/eb2bff36a96f4d2471774749387395da1a0c925eda45335d3cf1bcaddfbaf8a8.last_modified
+   12600  Defl:N     8554  32% 2018-05-03 01:42 4e5e3786  resources/cache/ee6f7f1b1961d124d84e7eb65cdc17fb65ea8aa15081404daa72a192e705afdc.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 3f1ef1c1  resources/cache/ee6f7f1b1961d124d84e7eb65cdc17fb65ea8aa15081404daa72a192e705afdc.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 15ae9d1f  resources/cache/ee6f7f1b1961d124d84e7eb65cdc17fb65ea8aa15081404daa72a192e705afdc.last_modified
+      70  Defl:N       70   0% 2018-05-03 01:42 7b5b5ea6  resources/cache/f1a35da2b330c8f6408843272bde9e96f8fea76c09aa0eea891f8ecefe28f76d.cached
+      18  Defl:N       20 -11% 2018-05-03 01:42 06c4968f  resources/cache/f1a35da2b330c8f6408843272bde9e96f8fea76c09aa0eea891f8ecefe28f76d.etag
+      29  Defl:N       29   0% 2018-05-03 01:42 9a76df57  resources/cache/f1a35da2b330c8f6408843272bde9e96f8fea76c09aa0eea891f8ecefe28f76d.last_modified
+  765414  Defl:N   647996  15% 2018-05-03 01:42 55b1ece7  resources/cache/f3d1e10435e2ff417270ef842ad80bc1e8a7dde5e345847ded9498871780715c.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 69c8e70e  resources/cache/f3d1e10435e2ff417270ef842ad80bc1e8a7dde5e345847ded9498871780715c.etag
+      29  Defl:N       29   0% 2018-05-03 01:42 cacab0b2  resources/cache/f3d1e10435e2ff417270ef842ad80bc1e8a7dde5e345847ded9498871780715c.last_modified
+    6981  Defl:N      588  92% 2018-05-03 01:42 e65dc51f  resources/cache/f893d69fd9855cd1812c7daecf636d1f51664e30a2f6365bd9c68476a3f9b892.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 c9ecdc78  resources/cache/f893d69fd9855cd1812c7daecf636d1f51664e30a2f6365bd9c68476a3f9b892.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 4a771331  resources/cache/f893d69fd9855cd1812c7daecf636d1f51664e30a2f6365bd9c68476a3f9b892.last_modified
+      74  Defl:N       69   7% 2018-05-03 01:42 009380c6  resources/cache/f978634321962c52bb6a1373331393316c619824a96d7106294f9a4fa15d5b8d.cached
+      13  Defl:N       15 -15% 2018-05-03 01:42 6b05066a  resources/cache/f978634321962c52bb6a1373331393316c619824a96d7106294f9a4fa15d5b8d.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 8f23f6a6  resources/cache/f978634321962c52bb6a1373331393316c619824a96d7106294f9a4fa15d5b8d.last_modified
+    9047  Defl:N     7158  21% 2018-05-03 01:42 dc1d17c1  resources/cache/fb114cb419c5b226aeb550809252ec52d3eb36a757597c806c3fe9ea17b6c907.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 1ad03588  resources/cache/fb114cb419c5b226aeb550809252ec52d3eb36a757597c806c3fe9ea17b6c907.etag
+      29  Defl:N       29   0% 2018-05-03 01:42 07ca680b  resources/cache/fb114cb419c5b226aeb550809252ec52d3eb36a757597c806c3fe9ea17b6c907.last_modified
+  419802  Defl:N   351397  16% 2018-05-03 01:42 b374bbb9  resources/cache/ff760eab69b02cd8fbe7febab5a3b40334fc7d730be2d4062e208158f74a2356.cached
+      34  Defl:N       36  -6% 2018-05-03 01:42 2bc86337  resources/cache/ff760eab69b02cd8fbe7febab5a3b40334fc7d730be2d4062e208158f74a2356.etag
+      29  Defl:N       31  -7% 2018-05-03 01:42 867eb4ac  resources/cache/ff760eab69b02cd8fbe7febab5a3b40334fc7d730be2d4062e208158f74a2356.last_modified
+       0  Stored        0   0% 2018-05-03 01:42 00000000  resources/luna_security_provider/
+     295  Defl:N      148  50% 2018-05-03 01:42 0da1e745  resources/luna_security_provider/Chrystoki.conf
+       0  Stored        0   0% 2018-05-03 01:42 00000000  resources/new_relic_agent/
+   12577  Defl:N     4345  66% 2018-05-03 01:42 59fd5f46  resources/new_relic_agent/newrelic.yml
+       0  Stored        0   0% 2018-05-03 01:42 00000000  resources/protect_app_security_provider/
+    1058  Defl:N      518  51% 2018-05-03 01:42 232a5e79  resources/protect_app_security_provider/IngrianNAE.properties
+       0  Stored        0   0% 2018-05-03 01:42 00000000  resources/tomcat/
+       0  Stored        0   0% 2018-05-03 01:42 00000000  resources/tomcat/conf/
+     718  Defl:N      437  39% 2018-05-03 01:42 713c1d78  resources/tomcat/conf/context.xml
+    1091  Defl:N      503  54% 2018-05-03 01:42 b8b24741  resources/tomcat/conf/logging.properties
+    1591  Defl:N      812  49% 2018-05-03 01:42 b99bf698  resources/tomcat/conf/server.xml
+--------          -------  ---                            -------
+390823481         363220374   7%                            412 files
+
+Shane@Shane-Laptop MINGW64 ~/Buildpacks/java-buildpack/build (master)
+$ ls -lrt
