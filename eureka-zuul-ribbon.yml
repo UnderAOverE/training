@@ -1,0 +1,83 @@
+zuul:
+  routes:
+    Microservice:
+      path: /private/v1//**
+      serviceId: serviceID
+      stripPrefix: false
+	  
+zuul:
+  host:
+    socket-timeout-millis: 90000
+    connect-timeout-millis: 90000
+
+Microservice:
+  ribbon:
+    ServerListRefreshInterval: 1000
+    ConnectTimeout: 5000
+    ReadTimeout: 10000
+	
+eureka:
+  password: password
+  client:
+    registryFetchIntervalSeconds: 60
+    serviceUrl:
+      defaultZone: ${vcap.services.${PREFIX:}eurekaURL.credentials.uri:http://user:password@host}/eureka/
+  instance: 
+    healthCheckUrlPath: /health
+    leaseRenewalIntervalInSeconds: 60
+    hostname: ${vcap.application.uris[0]:localhost}
+    #hostname: ${vcap.application.uris[0]:${eureka.instance.metadataMap.instanceId}}
+    nonSecurePort: 80
+    #metadataMap: 
+    #  instanceId: "${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}"
+    #  password: "${security.user.password:password}"
+    statusPageUrlPath: /info
+
+# Increase tomcat container header size to allow large headers used for blackbox, etc.
+server.tomcat.maxHttpHeaderSize: 20000
+
+
+
+
+security:
+  user:
+    password: ${eureka.password} # Don't use a default password in a real app 
+   
+---
+spring:
+  profiles: cloud # connect to remote peer  
+
+eureka:
+  instance:
+    metadataMap:
+      zone: zone8
+    hostname: ${vcap.application.uris[0]:localhost}
+    nonSecurePort: 80
+    nonSecurePortEnabled: true
+    homePageUrl: /
+    statusPageUrl: /admin/info
+  password: '{cipher}sdssdfds'
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+  client:
+    registerWithEureka: false
+    fetchRegistry: false	
+    serviceUrl:
+      defaultZone: http://user:${eureka.password}@host1/eureka/,http://user:${eureka.password}@host2/eureka/,http://user:${eureka.password}@host3/eureka/,http://user:${eureka.password}@host4/eureka/
+
+	  
+eureka:
+  password: password
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: ${vcap.services.eurekaURL.credentials.uri:http://user:password@localhost:8762}/eureka/
+  instance:
+    hostName: ${vcap.application.uris[0]:localhost}
+    nonSecurePort: 80
+    nonSecurePortEnabled: true
+    leaseRenewalIntervalInSeconds: 10
+    homePageUrl: http://${vcap.application.uris[0]:localhost}/
+    statusPageUrl: http://${vcap.application.uris[0]:localhost}/admin/info
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
