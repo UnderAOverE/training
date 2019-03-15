@@ -1,0 +1,363 @@
+
+"Tell me about a difficult client", "How do you deal with ambiguity", etc.
+
+Define how database knowledge was applied to resolve a complex issue. How different sources of information were used to identify and resolve an issue. - Provided experience with a most recent issue. I guess the way this issue was resolved was not what the interviewer was looking for.
+
+How would suggest we fix the following actual problem we encounter on a daily basis? - 
+
+White board a 3 tier architecture with various components. How do you scale it 1000x for a global ecommerce application. They ask a lot about scaling almost any technology to a global audience. 
+Many scenario based questions. One question "have you ever had a job where you were on call?"
+
+Talk about an instance when you had to make quick decision without having all the information.  
+
+Talk about when you went above and beyond what you were assigned.  
+
+Recall an instance when you had to overcome resistance from a coworker to cooperate.
+
+How would you troubleshoot a three-tier application? 
+
+Cloud based authentication scenarios.
+
+"Tell me about a time when you took a big risk in making a quick uniformed decision" 
+
+What is the difference between TCP and UDP? - UDP is sessionless and add to speed of packet transmission since unlike TCP, UDP does not control the packet transmission, this is speed vs quality, if you can afford to lose some packet at the benefit of speed then the UDP protocol is to be used like in online computer games.
+
+How I face challenges, one thing I was proud of and one thing I wasn't proud of.  
+
+CIDR notations and NAT.
+
+PMP Encryption related knowledge  
+
+What of the 14 principles do you like the most, or least?  
+
+Tell me about a time when you had to help a colleague that was struggling  
+Tell me about a time when a project failed despite your best efforts  
+Tell me about a time when you had to step out of your core competency  
+Tell me about a time when you received critical or negative feedback  
+
+Design an FT, HA n-tier architecture.  
+
+Walk through networking, VPN and DNS basics including how to deploy for scalability.  
+
+How would you identify and troubleshoot a DDoS attack? - Use packet analyzer / sniffer to see traffic source and ports attacked, block on border perimeter through ACLs or advanced traffic interception / control features on FW
+
+Describe Black/Red deployment technique, when and why to use it. - ]
+
+How would you design a data center?  
+Tell me about a time you dealt with ambiguity.  
+Tell me about a time you dealt with conflict with a co-worker or manager.  
+Tell me about a time you used innovation to improve something.  
+Tell me about a time you went above & beyond what was required of you.  
+Tell me about a risk you took and failed.  
+Tell me about a risk you took and succeeded.  
+Tell me about a time you innovated a process.  
+
+How did you deal in a tough situation in your current job.  
+
+Do you know about Hadoop?
+Moving files from location A to location B and they are multi terrabyte, you have high bandwidth and high latency. How would you move these files?
+Explain how containers work
+You have 2 web servers and 1 DB node, customer says volume is 20 times the previous peak what would you do?
+Explain tiered storage
+Explain data dupe
+What is the difference from a relational database and a no sql database
+
+Questions about 3 tier, Hypervisor, Loadbalancing, IIS  
+
+Describe a difficult problem you couldn't resolve.  
+
+Describe the steps to troubleshoot a slow database running on a cloud app  
+
+Tell me about a time when you were working on a project - what was the problem and how did you know you were on the right track to solve it.  
+
+What is a Federation?  
+What is HTTPS/SSL?  
+What does HTTPS/SSL protect against?  
+What is a TLD (Top-Level Domain)?  
+What is DNS (Domain Name System)? How does it work?  
+How is a hostname resolved from the command-line?  
+How is an IP resolved to a domain name?  
+What happens when you initiate a request to Google.com or another site?  
+Explain the SSL HandShake.  
+What is NAT (Network Address Translation)?  
+How would you troubleshoot Windows Slowness?  
+Give an example of a time where you had to troubleshoot Windows Network Slowness? What tools were used? (Use the STAR question format)  
+How would you troubleshoot an issue with a Windows Process? Share a time in which this was done. (Use the STAR question format)  
+What is CI (Continuous Integration)?  
+What are Containers?  
+What is a Relation Database? How does a Relational Database differ from a NoSQL DB?  
+What is Database Sharding?  
+What is MapReduce?  
+What is CDN (Content Delivery Network)?
+
+
+14 Leadership Principles based Behavioral questions using STAR (Situation, Task, Action, Result) method for sure is mandatory non-Technical questions
+Cloud Computing questions: architecture, networking, database, load-balancing, servers, linux and other technologies
+Computer science questions: binary search, TSP, CI/CD, Agile software life-cyle, etc
+Presentation skill and impromptu design/drawing skills on white-board to simulate your interaction with AWS customers 
+
+
+What are the roles of the typical customers you interact with?  
+Tell me about a time you took on work outside your responsibility?  
+You have a 2-tier webapp with multiple webservers, a load balancer, and a database server. Customer says all webpages have been loading slow for the past 1 month. What would you do to identify the problem?  - Test the page response first from various locations to make sure it is the system and not network / BW congestion, then the load on all the nodes and on the interfaces, if all seems ok, check the DB further for transactions delays reasons.. possible issues can be network congestion (solve by increasing bw or use cdn or eliminate issues like DDOS attacks) , webservers load (scale up or out), databses (scale up or out or optimize code/queries)
+What's a CDN?  
+Some question involving TCP stack and the difference between layer 4 and layer 7  
+What's a docker container? What's the difference from a VM?  
+What are some of the problems of doing table scans in a database?  
+Tell me about MySQL vs NoSQL  
+What's sharding? What are some of the drawbacks of implementing it?  
+
+Tell me how a packet is routed through the internet.  
+
+Tell me about a time when a coworker didn’t meet your expectations, and how you handled it.  
+
+What was one of the most creative things you did to solve a problem?  
+
+Describe a situation where you disagreed with a superior, how you handled it, and what the outcome was.  
+
+What happens when you enter URL in browser.  
+
+Tell me about a mistake you made and how you handle it.  
+
+How to install IIS on windows 2012?  
+How to configure virtual names on Apache?
+How to configure SSL?  
+what are the run levels for Linux  
+Diffrence between UDP and TCP  
+lots of questions about LoadBalancers (how they work? algorithmic? etc).  
+
+Why does an enterprise use RAID?  
+
+How DNS work?
+How DHCP work?
+How to move huge data between 2 different locations with high latency on the network between these locations?
+What is Hyper-visor?
+What are the type of virtualization?
+What are the RAID levels?
+What is DB caching?
+How to increase DB Performance and make it more scalable?
+What is multi-tier architecture application?
+What is Content Network Delivery?
+What is the difference between SQL and NoSQL?  
+
+LINUX (kernel, web servers, LVM, File-systems, inodes, hard links vs soft links, umask, troubleshooting commands like top, iostat, etc..) , NETWORKING (load balancers, ISO OSI layers, DNS, Classful network, handshake, etc...), STORAGE (SAN vs NAS, tiered storage, RAID, etc...), ARCHITECTURE (3-tier architecture, design a typical web site architecture, design an architecture to manage URL shortening, etc...), DATABASE (Relational vs Object Oriented vs NoSQL, etc...), VIRTUALIZATION
+Competency topics to prepare:
+Study the Amazon Principles and think at some examples of your career reflecting them. It's very important.
+
+Describe the packet content of web browser request to access a site.  
+what woul you check if users of a web based application are experiencing sleeplessness,given that they are geographically distant from the servers  
+what is Hadoop  
+
+What is a 'shell' in Linux?
+What is a Elasticity in AWS?
+how to resize an SQL database
+
+How do you scale your 2 web and 1 DB app to 1000s of users and accept ordering system. Load Balancer, CDN, Storage  
+
+What is a table scan?
+Config as a webserver.
+Deploy a VM to the cloud.
+Difference between scripting language and compiled language.  
+
+a customer has a service that needs to scale and be highly available.. how would you go through the process of thinking about what needs to be put in place for the service to be successful?
+
+Design a 3 tier application - web, application, db
+Scaling questions
+How can you reroute requests originating from different countries to nearby web servers without a CDN
+Describe a project that you implemented - what requirements you had to gather
+Describe a situation where you had to troubleshoot an issue after implementation and what you learn
+What would you do if your pager goes off in the middle of the night since one your customers is experiencing a DDoS attack?  
+
+Name examples of a situation where you had to make a decision based on little or no information.  
+
+How did you handle a situation/made a decision when you did not have all the data?  
+What was a project that you were able to change or pivot to meet a changing expectation? (I was asked this no fewer than 3 separate times)  
+
+
+How do you perform an upgrade of a load balanced web application with minimal customer impact?  - This is outside of my area of expertise so I just guessed (and I'm paraphrasing here) that you would remove half of the backends from the VIP, upgrade them, then add them back while removing the other half and upgrading those. Otherwise I said you could do some rolling upgrade and have some backends running different code during the upgrade procedure. He said it was more or less in the right ballpark and I was able to talk through my thought process so even if it was wrong I think he appreciated the methodology.
+
+
+Explain Highly available 3 tier architecture
+
+How you share session if you have application in two different regions?
+
+How will you measure the latency and find out the performance lag?
+
+If you want to know something is happening inside the Linux application what will you do?
+
+Cloudfront explanation?
+
+The best project you worked and proud of.
+
+Check Network load balancer.
+
+If you are using the IoT application, then how will you be distributing certificates to all the devices?
+
+How do you scale an on-prem application globally?
+
+Tell me a situation where you have a conflict with manager or colleague?
+
+Tell me a situation where you have to go against the norm and take a difficult decision?
+
+Describe a difficult problem you couldn't resolve?
+
+What of the 14 principles do you like the most, or least?
+
+Describe a situation where you had to troubleshoot an issue after implementation and what you learn?
+
+Questions on Amazon principle and examples from your life work experience?  
+
+What are the technical steps you would take to secure a three-tier application?  
+
+RDBMS vs NoSQL  
+
+How to troubleshoot a three-tier web application, particularly in case of decreased performance?  
+
+What are ways to improve a system architecture?  
+
+How to scale a database?  
+
+What is Federation and what are different federation types?  
+
+What is database normalization?  
+
+CDN  
+
+Tell me about a situation where a crisis where experienced. How did you deal with it? What did you learn? How to mitigate from happening again in the future?  
+
+Hardware vs Software in the context of storage
+
+What is the difference between Layer 2 and Layer 3 (Did not specify Ethernet or IP)  
+
+What is Group Policy loopback processing?  
+
+Explain load balancing
+
+what is the difference between rdb and nosql.
+
+how would you set up a server with db, no downtime, redundant, resilient, multi location, ..etc
+
+how will you troubleshoot issues on linux, like network, process..etc
+
+lots of S.T.A.R. questions. like tell me a time when you have failed, achieved something more than you think, stressed, ...etc how did you deal with it, what did you do...etc
+
+when you enter a domain name into browser , what happens.
+
+what is proxy
+
+what is the difference proxy and routing
+
+how CDN works
+
+what is IDS/IPS, which layer in osi does it work?
+
+how would you do a sql replication?
+
+What is NAT
+
+how does load balancer works , which brand would you use,
+
+how would you connect to your servers for administration and troubleshooting, linux and windows?
+
+what are the differences between windows and linux
+
+what is error 500 on a web page.  
+
+how will you troubleshoot a process in linux?  - my answer was using, netstat, ps, lsof, gdb, top. the answer he was expecting was thread dump. this was troubleshooting httpd. you can only thread dump on java but i didn't want to argue with the guy, i just said I dont use that. He thinks he can do thread dump on any process obviously he never really troubleshooted any process in linux.
+
+what is error 500?  
+Describing a full redundant, resilient, multi region servers (no point of failure, live 24/7) dns, load balancers, firewalls, applications servers, and Databases.  - I attempted to setup on aws but the guy insisted to do something else saying he is better on aws and there could be a question that i cant answer so he asked me to do something that i did before (i am not sure how many people in the world did a setup like this anyways) so I tried to do something with conventional way , it wast that good because it is not possible to do it with out a cloud infrastructure. - There is no such thing is as no downtime, who ever claiming that is lying. want proof? search google for "amazon downtime" you will see lots of them, so if they claim that you can make no downtime setup via aws , so i am asking why they cant do it for their website, i am not talking about aws services even just the web site. plus most of the services they claim to be globally available, elastic, ...etc its not %100 true. The guy who was an system architect at amazon was so proud of himself that he knows how to setup no downtime setup not in just 1 way but multiple ways, obviously he has no idea what he was talking about and he himself even probably believes in this lie. if there is such thing possible than we wouldn't see healthcare.gov, google.com Microsoft.com , amazon.com websites down ever, which is not the reality. - I guess the guy was talking about 100% availabilty is subjective to the acceptable RPO/RTO as with 0 values you will have an absolute availability figure to achieve, which is impossible. The Web and Business logic tiers are easy to scale horizontally, the point here is the DB/Data tier that is not possible to scale effectively with 100% consistency, especially when you talk multi regional, if you have active passive cluster there is a limit on how far you can place these.. several tens of miles with direct FO connectivity.. now the alternative was redundancy with snapshot replication, but here again, you will loose the last snapshot update to failure data.. With Dynamo DB or MySql replications even in the cloud there will still be an RPO - You can deploy Web, application and data tier in two geographically different datacenters with traffic routed to the webtier through DNS weighted or round-robin to the Loadbalancer VIP. You can deploy multiple nodes of LB, applicaition and database for hardware redundancy. Similarly redundany on your routers, firewalls and loadbalancers in each location. The databaces need to be in active/active or active/standby by using various replication mechanisms to serve the customer traffic.
+
+how will you stop a dos attack? - my answer was throttling and blocking the attack sources on firewall.
+
+Phone - difference between UDP and TCP, How to troubleshoot database performance issues, how to check for network card issues.
+
+Provide a time that you made an error and what was the outcome  
+
+Face to face - biggest accomplishment, a scenario when you had to deviate from the standards, scenario when you went against the norm, etc  
+
+Face to face - explain how 3 tier app works, configured, high overview
+
+Describe a time where you helped a client get through a production outage or problem  
+
+Describe the differences between RDBMS vs NoSQL  
+
+How would you troubleshoot and issue with a Linux application? Walk through the steps, commands, etc?  
+
+How would you diagnosis a problem with a slow database application.  
+
+What is the function of a OLAP database? 
+
+What is , out of all the Amazon Leadership Principles, you find is the most important one  
+
+Tell me about a situation where you disagree with your manager  
+
+Scenario-Based questions such as: "A time that you went beyond the expectation of the customer", "A time when you were the only person in the room with an different opinion or approach to a solution and how you handled that". Anybody serving long enough in the field will have solid examples of these, the real trick is being prepared and being able to articulate them on the fly and in serious depth.  
+
+
+I’ve actually interviewed for (and received a job offer from Amazon) so I can shed a little bit of insight on what the process looks like.
+
+There’s on strategy that works VERY well when interviewing for companies like Amazon.
+
+I call them…
+
+POWER STORIES
+
+The concept here is pretty basic.
+
+Create a list of your most impressive professional accomplishments.
+
+Did you improve a process a work the increased speed?
+
+Did you find a solution to a problem that was creating quality errors?
+
+Did you deliver a presentation that landed a key client?
+
+Basically, you want to think of every situation where you’ve had a positive/major impact on your company.
+
+Format the Stories
+
+Once you’ve got all your accomplishments written out, you’ll want to expand each one into a detailed story.
+
+Here are the pieces your story needs to have (borrowing from the STAR method)
+
+Situation - Set up the context. What was the problem that you eventually solved?
+Task - What game plan did you develop to solve this problem?
+Action - (The bulk of your answer) What steps did you to take to execute your plan?
+Result - How did things end? Did you achieve your goal and solve the problem? Did you fail? If so, what did you learn?
+Practice Telling Your Stories
+
+Now that you know your stories, you’ve got to practice them!
+
+Verbally run through your stories, one by one, refining your delivery every time.
+
+Focus on being as concise as possible with your answers. You don’t want to bore the interviewer.
+
+Build up the tension when you talk about the problem.
+
+Focus on what YOU specifically did when you talk about the action taken.
+
+Practice, practice, practice, practice.
+
+Apply Your Stories to Various Interview Questions
+
+Once you’ve got your stories nailed down, the next step is to be able to apply them to various interview questions.
+
+You can Google this, and come up with plenty to choose from. But I personally like to go with the “Behavioral Questions” since those are the type the Amazon asked during my interview.
+
+Try and see how many different questions you can apply each question to. That way, when you’re actually in the interview, you’ll be prepared for any kind of question the recruiter throws at you.
+
+You’ll need to tweak different parts of how you deliver your answer to fit the question.
+
+Use Glassdoor to Find Interview Questions
+
+I did a quick search of Glassdoor for the Technical Account Manager Position at Amazon, and here are some of the questions I found:
+
+How did you handle a situation/made a decision when you did not have all the data?
+Describe a situation where you had to troubleshoot an issue after implementation and what you learned
+What would you do if your pager goes off in the middle of the night since one your customers is experiencing a DDoS attack?
+With a quick search, I’m sure you can find more to practice with!
+
+Again, this is the exact same process I used to land a job offer from Amazon.
+
+Hope this helps!
