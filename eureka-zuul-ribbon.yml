@@ -36,9 +36,6 @@ eureka:
 # Increase tomcat container header size to allow large headers used for blackbox, etc.
 server.tomcat.maxHttpHeaderSize: 20000
 
-
-
-
 security:
   user:
     password: ${eureka.password} # Don't use a default password in a real app 
@@ -64,7 +61,6 @@ eureka:
     fetchRegistry: false	
     serviceUrl:
       defaultZone: http://user:${eureka.password}@host1/eureka/,http://user:${eureka.password}@host2/eureka/,http://user:${eureka.password}@host3/eureka/,http://user:${eureka.password}@host4/eureka/
-
 	  
 eureka:
   password: password
