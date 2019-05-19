@@ -1,0 +1,107 @@
+
+What is the most difficult problem you've encountered and how did you solve it?
+You are the sys admin Oracle DB 11g server performance very slow. How could you check performance? How would you check Process ? ps, top, etc
+
+Oracle process %30 user CPU, %60 system CPU, %10 idle, CPU what does this mean?
+
+Is there any way you could determine why server spending a lot of time ? to check to process? What are these commands going to give me?
+
+You are trying to read a file cat /etc/password. When you run strace, do you know what are the files or system calls that would a cat comand will open?
+open,nmap ,fstat or close
+
+Is there any way to install package other than apt-get install?
+rpm, yum, tar files, brew, etc.
+
+For example server is very secure and there is no internet connection how can you install from source file?
+
+What happenes in the background when you do make? How is that the models loaded in the kernel?
+
+You dont want models to be loaded into the kernel, you want explicitly mount on demand. Is there any way that you could do at this time?
+confugre; make; make install
+
+How can you determine that the vulnerability has been fixed in this package?
+You can also check the local changelog to verify whether or not OpenSSL is patched against the vulnerability with the following command:
+rpm -q --changelog openssl | grep CVE-2014-0224
+
+How do you make sure the package which is available in the repo that has security fix? The new CVE fix?
+you can do yum update to update your yum repository or you can do yum install yum-plugin-security
+
+You need to patch openssl. What is the quickest way or efficient way of installing the package?
+# apt-get install pkgname , yum install pkgname, dpkg –i pkgname.deb
+# ./configure &amp;&amp; make &amp;&amp; make install
+
+Have you heard about vm.swappiness kernel parameter? How do you set that parameter?
+Swappiness is the kernel parameter that defines how much (and how often) your Linux kernel will copy RAM contents to swap. This parameter's default value is “60” and it can take anything from “0” to “100”. The higher the value of the swappiness parameter, the more aggressively your kernel will swap.
+
+How to change it?
+The swappiness parameter value is stored in a simple configuration text file located in /proc/sys/vm and is named “swappiness”. If you navigate there through the file manager, you will be able to locate the file and open it to check your system's swappiness. You can also check it or change it through the terminal (which is faster) by typing the following command: “sudo sysctl vm.swappiness=10” or whatever else between “0” and “100” instead of the value “10” that I used. To ensure that the swappiness value was correctly changed to the desired one, you simply type: “cat /proc/sys/vm/swappiness” on the terminal again and the active value will be outputted
+
+Do you have any kernel performance, tuning experience?
+# sysctl -a
+kernel.panic = 0
+kernel.core_uses_pid = 0
+kernel.core_pattern = core
+kernel.tainted = 129
+...many lines snipped...
+
+change any variable by using the -w option
+# sysctl -w net.ipv6.conf.all.forwarding=1
+
+/etc/sysctl.conf - Configuration file for setting system variables
+
+For example, the 2.4.x series kernel message queue parameter “msgmni” has a default value (for example, shared memory, or shmmax is only 33,554,432 bytes on Red Hat Linux by default)
+
+Mentioned below are some recommended values (by the IBM DB2 Support Web site) for database servers to run optimally:
+kernel.shmmax=268435456 for 32-bit
+kernel.shmmax=1073741824 for 64-bit
+kernel.msgmni=1024
+fs.file-max=8192
+kernel.sem=”250 32000 32 1024″
+Tune Up Your TCP
+
+Use the ‘noatime’ File System Mount Option
+Use the ‘noatime’ option in the file system boot-up configuration file ‘fstab’. Edit the ‘fstab’ file by choosing ‘Etc.’ These steps work the best if external storage is used
+
+You need write consistency as well as read Which RAID you would recommend to configure on the storage?
+RAID 0 offers great performance, both in read and write operations.
+
+You have been asked as a storage admin How do you benchmarking 2 different storage vendor? 4 TB disk, what are the different benchmarking test that you would do before determine which one best suitable for you?
+you can use fio or dd comands to benchmark
+
+What is significant of Oracle RAC filesystem compared to traditional ext4 VS, xfs?
+
+How do you determine disk is bad?
+badblocks command
+
+How would you check disk io activity?
+iostat,
+
+root@ub1604srv:~# dstat
+You did not select any stats, using -cdngy by default.
+----total-cpu-usage---- -dsk/total- -net/total- ---paging-- ---system--
+usr sys idl wai hiq siq| read writ| recv send| in out | int csw
+  0 1 99 0 0 0|9487B 25k| 0 0 | 0 0 | 20 58
+  0 1 99 0 0 0| 0 0 | 240B 1176B| 0 0 | 25 72
+  0 1 99 0 0 0| 0 0 | 60B 358B| 0 0 | 16 49 ^C
+root@ub1604srv:~# iostat
+
+Regards the memory subsystem, What are you would check? Operation System side.
+vmstat, free commands give an idea.
+
+The steps linux goes through when it boots  
+Difference between ram and swap memory  
+What is a zombie process  
+What is an orphan process  
+Cache vs buffer  
+Does the system drop cache or its buffer  
+hardlink vs softlink  
+What is journaling  
+Difference between the file systems  
+What does *.*.*.* mean in tracert  
+file hierarchy system
+
+What's the main kernel linux function?  
+What's the linux tool to lookup open files?  
+Which is the process number 1 on Linux startup?  
+Difference between Softlink and Hardlink?  
+Describe all Linux runlevel
