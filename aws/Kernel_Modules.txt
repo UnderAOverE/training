@@ -1,0 +1,29 @@
+
+Kernel: Linux Kernel
+ov: older versions.
+package: module-init-tools [contains modprobe, insmod and depmod, ov<=2.6: modutils]
+
+What is a Kernel Module?
+	Modules are pieces of code that can be loaded and unloaded into the kernel upon demand. They extend the functionality of the kernel without the need to reboot the system. For example, one type of module is the device driver, which allows the kernel to access hardware connected to the system. Without modules, we would have to build monolithic kernels and add new functionality directly into the kernel image. Besides having larger kernels, this has the disadvantage of requiring us to rebuild and reboot the kernel every time we want new functionality.
+
+List all the modules loaded inside a Kernel:
+	- lsmod (/proc/modules)
+
+How modules are loaded into Kernel?
+	- Kernel daemon (kmod[ov: kerneld]) execs modprobe to load module in to Kernel.
+	- modprobe (/etc/modprobe.conf, you can run strace modprobe <module_name> to check for the actual file in other distributions) takes a string as input in one of two forms: module name or module name with generic identifier.
+	- modprobe looks through the file /lib/modules/$(uname -r)/modules.dep.bin (or without the .bin suffix if the other file is not available, created by running depmod -a) to find the dependencies to be loaded.
+	- modprobe checks for alias inside conf file for any alias (modules.alias.bin) and if it finds a match it loads the /lib/modules/$(uname -r)/<module_name>.ko(kernel object)/ ov <= 2.6 <module_name>.o(object).
+	- insmode accepts path to the file and does not load any dependencies.
+
+	Difference between insmod and modprobe:
+		root# insmod /lib/modules/2.6.11/kernel/fs/fat/fat.ko
+		root# insmod /lib/modules/2.6.11/kernel/fs/msdos/msdos.ko
+		vs
+		root# modprobe msdos
+
+Remove a loaded module inside a Kernel:
+	- rmmod (/proc/modules)
+
+Show information regarding a module:
+	- modinfo
