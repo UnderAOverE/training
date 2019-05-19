@@ -1,0 +1,12 @@
+
+How do you improve architecture?
+	Improve the ability to add new technologies and new capabilities.
+	Implement better monitoring and alerting systems.
+	Reduce maintenance costs.
+	Consolidate and simplify BAU activities.
+	
+How do you perform zero downtime deployments?
+	A/B Switch: Have standby nodes where the new version is deployed and traffic is diverted. This also called as Red/Black deployment with Black being the idle nodes. Main drawback is some nodes are idle all the time.
+	Software LB: Software LB fronts the application and the traffic is routed based on more than one end-point. Main drawback is to develop applications which are compatible with this approach. Netflix Zuul is one such software LBs where the traffic is routed based on end-points and routes.
+	Blue/Green: You can do a blue-green release if you've tested the new version in a testing environment and are very certain that the new version will function correctly in production.
+	Canary: Incremental deployment, where the traffic is split usually using LBs to send the set of users to new version and then slowly routed the whole traffic there.

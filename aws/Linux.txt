@@ -1,0 +1,31 @@
+
+Linux Package Managers:
+	- dpkg (Debain Package Management Tool) - Base
+		apt (Advanced Packaging Tool) - Resolves dependencies - /etc/apt/sources.list
+		Synoptic (Synaptic Packaging Tool) - GUI
+		aptitude - Similar to apt plus more advanced features and handles dependencies clash.
+
+	- rpm (Red Hat Package Manager) - Base
+		yum (Yellowdog Updater, Modifier) - Interface between users and rpm. - Written in python.
+		dnf (Dandified YUM)
+
+	- zpm (Zypper Package Manager)
+
+	- YAST (Yet another setup tool)
+
+	Linux Distributions:
+	- Debain/Ubuntu/Linux Mint - apt
+	- RedHat/Fedora/CentOS - yum
+	- OpenSUSE - zpm/ yast
+
+Linux Tools <-> Protocols <-> OSI Mapping) <-> Port
+	Traceroute <-> UDP (Linux)
+	Tracert <-> ICMP (Windows)
+	SSH [SFTP & SCP] <-> TCP/IP <-> [22]
+	FTP <-> TCP/IP
+	TFPT <-> UDP
+	HTTP <-> TCP/IP
+	Ping <-> ICMP (IP)
+	DNS <-> UDP <-> [53]
+	DHCP <-> UDP
+	LDAP <-> X <-> TCP/IP 636
