@@ -1,0 +1,57 @@
+
+What is the difference Proxy and Routing and explain CDN?
+
+Walk through Networking (OSI Layers [differences], TCP, UDP, CIDR Notations & NAT), VPN, DHCP and DNS (TLD) basics including how to deploy for scalability. - UDP is sessionless and add to speed of packet transmission since unlike TCP, UDP does not control the packet transmission, this is speed vs quality, if you can afford to lose some packet at the benefit of speed then the UDP protocol is to be used like in online computer games.
+
+Describe Black/Red (Blue/Green & Canary) deployment technique (CICD), when and why to use it?
+
+White board a 3 tier architecture with various components - How do you scale it 1000x for a global ecommerce application?
+You have a 2-tier webapp with multiple webservers, a load balancer, and a database server. Customer says all webpages have been loading slow for the past 1 month. What would you do to identify the problem?  - Test the page response first from various locations to make sure it is the system and not network / BW congestion, then the load on all the nodes and on the interfaces, if all seems ok, check the DB further for transactions delays reasons.. possible issues can be network congestion (solve by increasing bw or use cdn or eliminate issues like DDOS attacks) , webservers load (scale up or out), databses (scale up or out or optimize code/queries)
+How to configure virtual names on Apache? 
+
+
+How would you identify and troubleshoot a DDoS attack? - Use packet analyzer / sniffer to see traffic source and ports attacked, block on border perimeter through ACLs or advanced traffic interception / control features on FW
+
+Explain how containers work? Why would you use them? What's the difference from a VM?
+
+What is the difference from a relational database and a No-SQL database?
+
+Moving files from location A to location B and they are multi terrabyte, you have high bandwidth and high latency. How would you move these files?
+
+What happens when you initiate a request to google.com or another site?
+
+What is Hypervisor? What are the type of virtualization?
+
+Why does an enterprise use RAID? What are the RAID levels?
+
+
+Some questions below:
+	1. Tell us about the situation where you went beyond customer expectations and solved some technical issue.
+		Was involved in migrating LATAM websites (Brasil, Argentina, Colombia, etc) infrastructure to newer versions and
+	2. Tell us about a situation where your manager was saying 'NO' to a solution you provided, How you dealt with this and successful convinced your manager to go with your solution.(It should be technical)
+
+	3. How would you earn the trust of customers? (Tell something like you automated something which is not part of your job, but made customer happy)
+
+	4. Tell us about something where you brought a change in the current process in the team which led to increase in team productivity.
+
+	5. Tell us about a time when you took lead responsibility of some task/project which is rather critical and successfully accomplished it.
+
+	6. How would you deal with angry customer?
+
+	7. You did some mistake in work which affected something, how did you analyze the mistake, deal with the situation? (Give some example)
+
+	8. How to deal with conflicts with the team member? Acknowledge the conflict/disagreement, Work on resolution and Reach Agreement.
+
+	9. Tell me about a good technical issue you have troubleshooted recently which you are very proud of? Observed high CPU utilization on web servers - which was initialy suspicion was DDos and later engaging the SOC/Network teams which was determined that was not the case. While analyzing the logs with mpmstats module enabled - I observed that more threads were being consumed by mod_log module that correlated with the recent change we made for external syslog (Splunk) which we were forwarding the logs to. After disabling the syslog the CPU utilization came down to normal operational levels.
+
+	10. What is the coolest thing you have learned on your own that has helped you better perform your job? (Learn and be curious)
+
+	11. Tell me of a time when you took on work outside of your comfort area and found it rewarding? (Learn and be curious)
+
+	12. Tell me about a time when you took on something significant outside your area of responsibility. Why was it important? What was the outcome?
+
+	13. Tell me about a time where you felt your team was not moving to action quickly enough. What did you do? (Manager)
+
+	14. Tell me about a time when you were able to remove a serious roadblock/barrier preventing your team from making progress? How were you able to remove the barrier? What was the outcome? (Manager)
+
+	15. Tell me about a time when you did a mistake at your job or project that affected some production or business. How did you analyze it and lessons learnt from it?
