@@ -1,0 +1,61 @@
+
+1) Customer Obsession:
+	a) Who was your most difficult customer?
+	b) Give me an example of a time when you did not meet a client’s expectation. What happened, and how did you attempt to rectify the situation?
+	c) When you’re working with a large number of customers, it’s tricky to deliver excellent service to them all. How do you go about prioritizing your customers’ needs?
+	d) Tell the story of the last time you had to apologize to someone.
+
+2) Ownership:
+	a) Tell me about a time when you had to leave a task unfinished: S: I was new to the job and I was asked to lead a global deployment effort where
+	b) Tell me about a time when you had to work on a project with unclear responsibilities: This question can have similar answer like in 2.a.
+
+3) Invent & Simplify:
+	a) Tell me about a time when you gave a simple solution to a complex problem: The LATAM web sites migration, where they have around 400 redirects that needs to be tested before we put in to the Production, I suggested to update the /etc/hosts file under system32 folder in Windows to point to the new servers.
+	b) Tell me about a time when you invented something: I have invented cktool, which is short for custom keytool where I have taken the libraries of java keytool and written my own version, the features I have added to the tool are Pretty Print, Deleting all expired certificates with one command, adding the certificate signers of a particular public key and many more.
+
+4) Are Right, A lot:
+	a) Tell me about a time when you were wrong: This question can have similar answer like in 1.d.
+	b) Tell me about a time when you had to work with incomplete data or information: This question can have similar answer like in 2.a.
+
+5) Learn & Be Curious:
+	a) Tell me about a time when you influenced a change by only asking questions.
+	b) Tell me about a time when you solved a problem through just superior knowledge or observation: Observed high CPU utilization on web servers - which was initialy suspicion was DDos and later engaging the SOC/Network teams which was determined that was not the case. While analyzing the logs with mpmstats module enabled - I observed that more threads were being consumed by mod_log module that correlated with the recent change we made for external syslog (Splunk) which we were forwarding the logs to. After disabling the syslog the CPU utilization came down to normal operational levels.
+
+6) Hire & Develop The Best:
+	a) Tell me about a time when you mentored someone.
+	b) Tell me about a time when you made a wrong hire. When did you figure it out and what did you do?
+
+7) Invest on the Highest Standards:
+	a) Tell me about a time when you couldn’t meet your own expectations on a project: This question can have similar answer like in 1.b.
+	b) Tell me about a time when a team member didn’t meet your expectations on a project.
+
+8) Think Big:
+	a) Tell me about your proudest professional achievement.
+	b) Tell me about a time when you went way beyond the scope of the project and delivered.
+
+9) Bias for Action:
+	a) Describe a time when you saw some problem and took the initiative to correct it rather than waiting for someone else to do it.
+	b) Tell me about a time when you took a calculated risk.
+	c) Tell me about a time you needed to get information from someone who wasn’t very responsive. What did you do?
+
+10) Frugality:
+	a) Tell me about a time when you had to work with limited time or resources.
+
+11) Earn Trust:
+	a) What would you do if you found out that your closest friend at work was stealing?
+	b) Tell me about a time when you had to tell someone a harsh truth.
+
+12) Deep Dive:
+	a) Give me two examples of when you did more than what was required in any job experience: This question can have similar answer like in 8.b.
+	b) Tell me about something that you learnt recently in your role.
+
+13) Have Backbone; Disagree & Commit:
+	a) Tell me about a time when you did not accept the status quo.
+	b) Tell me about an unpopular decision of yours.
+	c) Tell me about a time when you had to step up and disagree with a team members approach: This question can have similar answer like in 1.a.
+	d) If your direct manager was instructing you to do something you disagreed with, how would you handle it? This question can have similar answer like in 1.a.
+
+14) Deliver Results:
+	a) By providing an example, tell me when you have had to handle a variety of assignments. Describe the results.
+	b) What is the most difficult situation you have ever faced in your life? How did you handle it?
+	c) Give me an example of a time when you were 75% of the way through a project, and you had to pivot strategy–how were you able to make that into a success story?
