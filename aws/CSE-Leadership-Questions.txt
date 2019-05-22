@@ -2,7 +2,7 @@
 1) Customer Obsession:
 	a) Who was your most difficult customer?
 	b) Give me an example of a time when you did not meet a client’s expectation. What happened, and how did you attempt to rectify the situation?
-	c) When you’re working with a large number of customers, it’s tricky to deliver excellent service to them all. How do you go about prioritizing your customers’ needs?
+	c) When you’re working with a large number of customers, it’s tricky to deliver excellent service to them all. How do you go about prioritizing your customer's needs?
 	d) Tell the story of the last time you had to apologize to someone.
 
 2) Ownership:
@@ -19,15 +19,15 @@
 
 5) Learn & Be Curious:
 	a) Tell me about a time when you influenced a change by only asking questions.
-	b) Tell me about a time when you solved a problem through just superior knowledge or observation: Observed high CPU utilization on web servers - which was initialy suspicion was DDos and later engaging the SOC/Network teams which was determined that was not the case. While analyzing the logs with mpmstats module enabled - I observed that more threads were being consumed by mod_log module that correlated with the recent change we made for external syslog (Splunk) which we were forwarding the logs to. After disabling the syslog the CPU utilization came down to normal operational levels.
+	b) Tell me about a time when you solved a problem through just superior knowledge or observation: Observed high CPU utilization on web servers - which was initially suspicion was DDos and later engaging the SOC/Network teams which was determined that was not the case. While analyzing the logs with mpmstats module enabled - I observed that more threads were being consumed by mod_log module that correlated with the recent change we made for external syslog (Splunk) which we were forwarding the logs to. After disabling the syslog the CPU utilization came down to normal operational levels.
 
 6) Hire & Develop The Best:
-	a) Tell me about a time when you mentored someone.
+	a) Tell me about a time when you mentored someone: Citibank has a great internship program where Computer Science Graduates are given opportunity to work in Information Technology space with current technologies, I was assigned two such interns with whom I worked closely on a Proof of Concept project to replace Apache web servers with Nginx as part of Cloud On-boarding and Adaptation. In the first few days I was able to gauge their understanding of e-commerce/ web applications inner workings and identified the areas of improvement and suggested them to utilize online training courses offered at Citi. We had daily 15 minutes stand-up meetings to go over the todays tasks and peer grooming sessions which helped them and also me as I was learning about Nginx in detail. We were able to build/configure and run the Nginx servers and completed the project with documentation detailing operational support, run book and monitoring. I really enjoyed working with the interns and had a sense of great pleasure and in the process made good friends.
 	b) Tell me about a time when you made a wrong hire. When did you figure it out and what did you do?
 
 7) Invest on the Highest Standards:
 	a) Tell me about a time when you couldn’t meet your own expectations on a project: This question can have similar answer like in 1.b.
-	b) Tell me about a time when a team member didn’t meet your expectations on a project.
+	b) Tell me about a time when a team member didn’t meet your expectations on a project: I can think of situation I was in where I had to work with a co-worker to complete the Automation project, we are asked to identify 10 pain points in day to day server administration tasks and provide automation solutions. I have come up with a plan to have 2 to 3 internal meetings with the rest of team and brain storm the areas of improvement, some of the things I can remember from that list are file systems cleanup (usage > 90% - mostly log files), performance monitoring alerts (CPU, Memory, IO & Disk Usage), patching 100s of servers (servers are not connected to Internet and requires local repos.), user management (Mostly Production Support team where privileged access is granted to perform Production changes), File transfers (application logs are sent to Business team for analysis), Scanning for vulnerabilities and etc. We made good progress and divided them in to groups depending on the complexity of the scripts which are going to be needed.
 
 8) Think Big:
 	a) Tell me about your proudest professional achievement.
