@@ -1,0 +1,24 @@
+
+#Begin.
+
+What do you know about Cloud Support Engineer?
+	- As an CSE your are responsible for maintaining Cloud Computing Systems. Typical expectations involves a lot of technical troubleshooting skills, programming knowledge and familiarity with hardware as well.
+	- You are responsible for assessing the system resources with regular monitoring/alerts to identify potential problems and capacity concerns.
+	- You are also responsible with software and hardware upgrades, patches, migrations etc. in order to ensure security, availability and optimal performance of the entire customer infrastructure.
+	- And last but not least, while your objective is to continue the development and improvement of existing systems so they are not compromised and you should have documentation defining plans to deal with emergencies and problems with the systems.
+
+Why do you want to work at Amazon (AWS)?
+	- To be honest, I have researched Amazon in-depth and I am impressed with work culture, commitment to excellence in technology and personal growth and the opportunities provided to those diligent enough to meet Amazon high standards.
+	- In short Amazon is the company everyone want to work at because they are the cloud technology leaders and innovators.
+	- And I have already interviewed for Technical Account Manager role and I was given feedback that I am an "Amazonian".
+
+Can you talk about your experience?
+	- I have been in the industry going on 13 years now, started off in middleware technologies (i.e., WebSphere, Tomcat, Apache, etc.) and lately I moved to cloud technologies specifically Pivotal Cloud Foundry, Kubernettes, etc. performing design/build/run roles and Level 3 troubleshooting and diagnostics support.
+	- Working with these technologies has made me appreciate the flexibility that a cloud environment can bring to the table. I am eager to get more exposure to cloud based technologies and I am passionate about learning new technologies and improving myself and helping others.
+	- And finally I have extensive experience in Linux/UNIX administration, various DevOps technologies like Jenkins, Git, Docker, Chef, etc. and in networking i.e., TCP/IP, OSI Model, Load Balancing, Firewalls etc.
+
+Why are you leaving your current job?
+	- Currently we are undergoing a massive re-org, I have lost my manager and other team members to lay-offs but the biggest factor is lack of exposure to new technologies and few training/growth opportunities.
+	- Normally I would put my head down and get to work but the opportunity to work with industry leader is why I am here today.
+
+#End.
