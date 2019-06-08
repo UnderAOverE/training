@@ -3,13 +3,18 @@
 	a) Who was your most difficult customer?
 	b) Give me an example of a time when you did not meet a client’s expectation. What happened, and how did you attempt to rectify the situation?
 	c) When you’re working with a large number of customers, it’s tricky to deliver excellent service to them all. How do you go about prioritizing your customer's needs?
+		This question can have similar answer like in 10.a.
 	d) Tell the story of the last time you had to apologize to someone.
-
+		S: Citi have a historical Cron jobs that run nightly, I had some of the vendor partners contact me saying he is missing some of the logs. It just so happened we experienced massive DDoS where several servers were hung and one was unrecoverable causing data loss.
+		T: Backup team was engaged to restore the bad server from last snapshot, the logs which customer already possessed.
+		A: Realizing this was a legacy practice and single point of failure for logging, Splunk was introduced for logging and for storing the logs.
+		R: The customer was notified of the new new process and provided the updated documentation.
+		
 2) Ownership:
 	a) Tell me about a time when you had to leave a task unfinished:
 		S: Citibank does business in 160 countries with 200 million customers, I am part of the team which support NAM and LATAM customers. I was new to the job at that time and I was asked to take a global initiative effort.
 		T: Identify and consolidate the various internal deployment tools that were being used, this was to reduce the licensing footprint and create a global catalog of softwares.
-		A: I got the copy of internal Org chart and based on that I scheduled meetings with teams across the time zones but the participation was low. Reached out to my manager for advice he said to try harder and escalate to respective team managers. I asked my senior colleagues was advice and that when I found out that htis was a long standing project initiative with little traction prior to my arrivals due to major re-org that Citi has just undergone.
+		A: I got the copy of internal Org chart and based on that I scheduled meetings with teams across the time zones but the participation was low. Reached out to my manager for advice he said to try harder and escalate to respective team managers. I asked my senior colleagues was advice and that when I found out that this was a long standing project initiative with little traction prior to my arrivals due to major re-org that Citi has just undergone.
 		R: Despite my best efforts I was not able to gather the comprehensive list. The project was deprecated as it was replaced by automation initiative which provided the answers to vendor consolidation and version control across the LOBs (Line of Business). This taught me a lesson about don't assume about the facts and look more for data.
 	b) Tell me about a time when you had to work on a project with unclear responsibilities:
 		This question can have similar answer like in 2.a, You can add in the Situation section to say that there was no clear objectives and targets defined.
@@ -41,7 +46,8 @@
 		A: I was never in a situation where I made the decisions to hire people. I was part of the hiring process where I provided technical interview feedback.
 
 7) Invest on the Highest Standards:
-	a) Tell me about a time when you couldn’t meet your own expectations on a project: This question can have similar answer like in 1.b.
+	a) Tell me about a time when you couldn’t meet your own expectations on a project: 
+		This question can have similar answer like in 1.b.
 	b) Tell me about a time when a team member didn’t meet your expectations on a project:
 		S & T: I can think of situation I was in where I had to work with a co-worker to complete the Automation project, we are asked to identify 10 pain points in day to day server administration tasks and provide automation solutions.
 		A: I have come up with a plan to have 2 to 3 internal meetings with the rest of team and brain storm the areas of improvement, some of the things I can remember from that list are file systems cleanup (usage > 90% - mostly log files), performance monitoring alerts (CPU, Memory, IO & Disk Usage), patching 100s of servers (servers are not connected to Internet and requires local repos.), user management (Mostly Production Support team where privileged access is granted to perform Production changes), File transfers (application logs are sent to Business team for analysis), Scanning for vulnerabilities and etc.
@@ -58,7 +64,11 @@
 
 10) Frugality:
 	a) Tell me about a time when you had to work with limited time or resources.
-
+		S & T: I currently support around 30 customer facing applications where in a typical week you will be working on code releases, patching, maintenance and upgrades sometimes with tight time lines.
+		T: I prioritize work and here is my method I use effectively: The key metrics that I use are RTO/ RPO [read more about them], Business Continuity and SLAs.
+		A: My incoming tickets are sorted into a matrix based on business criticality attributes. My matrix consists of 3 columns, number one the customer/ application type (Gold, Silver & Bronze), number two environment type (Production, Test, etc) and number three work type (outage, build, patching, testing, POC, etc)
+		R: By having the matrix and following SLAs, RTO and RPOs I am able to handle the work load in limited time and sometimes with limited resources in the team. Of course this requires coordination from other team members but we have high success rate of achieving monthly operational goals using this technique.
+		
 11) Earn Trust:
 	a) What would you do if you found out that your closest friend at work was stealing?
 	b) Tell me about a time when you had to tell someone a harsh truth.
