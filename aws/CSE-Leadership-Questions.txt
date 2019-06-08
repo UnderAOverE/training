@@ -1,6 +1,10 @@
 
 1) Customer Obsession: (In my opinion customer obsession means earning customer trust is achieved by understanding customer needs present and future and providing A+ service.)
 	a) Who was your most difficult customer?
+		S: I was assigned a ticket by another team member that had not been worked on, I reached out to the customer who was totally upset and livid that no one had touch the ticket in a week and it was impacting his time lines and he was not vary friendly to me.
+		T: I empathized with his situation and I realized it will not be easy to fix it and I ensured the customer that I would be the engineer that would work with him to resolution and "no bouncing around".
+		A: Based on the information he gave me I gathered pertinent logs, set a time line to meet with him next day to discuss my findings and I reviewed the logs and discovered the problem was something that had to be fixed outside of my team. I took it on myself to contact the engineering team and explained the issue of the customer, provided the logs and worked with the team to get a solution to the customer which was going to take couple of days.
+		R: I kept customer updated daily until the fix was in and verified. The customer was still wasn't happy with the delay but he was satisfied that I managed his ticket. What I learned was I can keep the customer happy by providing high level of communications and updates on the their tickets daily.
 	b) Give me an example of a time when you did not meet a client’s expectation. What happened, and how did you attempt to rectify the situation?
 	c) When you’re working with a large number of customers, it’s tricky to deliver excellent service to them all. How do you go about prioritizing your customer's needs?
 		This question can have similar answer like in 10.a.
@@ -9,7 +13,7 @@
 		T: Backup team was engaged to restore the bad server from last snapshot, the logs which customer already possessed.
 		A: Realizing this was a legacy practice and single point of failure for logging, Splunk was introduced for logging and for storing the logs.
 		R: The customer was notified of the new new process and provided the updated documentation.
-		
+
 2) Ownership:
 	a) Tell me about a time when you had to leave a task unfinished:
 		S: Citibank does business in 160 countries with 200 million customers, I am part of the team which support NAM and LATAM customers. I was new to the job at that time and I was asked to take a global initiative effort.
@@ -46,7 +50,7 @@
 		A: I was never in a situation where I made the decisions to hire people. I was part of the hiring process where I provided technical interview feedback.
 
 7) Invest on the Highest Standards:
-	a) Tell me about a time when you couldn’t meet your own expectations on a project: 
+	a) Tell me about a time when you couldn’t meet your own expectations on a project:
 		This question can have similar answer like in 1.b.
 	b) Tell me about a time when a team member didn’t meet your expectations on a project:
 		S & T: I can think of situation I was in where I had to work with a co-worker to complete the Automation project, we are asked to identify 10 pain points in day to day server administration tasks and provide automation solutions.
@@ -68,7 +72,7 @@
 		T: I prioritize work and here is my method I use effectively: The key metrics that I use are RTO/ RPO [read more about them], Business Continuity and SLAs.
 		A: My incoming tickets are sorted into a matrix based on business criticality attributes. My matrix consists of 3 columns, number one the customer/ application type (Gold, Silver & Bronze), number two environment type (Production, Test, etc) and number three work type (outage, build, patching, testing, POC, etc)
 		R: By having the matrix and following SLAs, RTO and RPOs I am able to handle the work load in limited time and sometimes with limited resources in the team. Of course this requires coordination from other team members but we have high success rate of achieving monthly operational goals using this technique.
-		
+
 11) Earn Trust:
 	a) What would you do if you found out that your closest friend at work was stealing?
 	b) Tell me about a time when you had to tell someone a harsh truth.
