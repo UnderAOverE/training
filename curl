@@ -1,0 +1,47 @@
+
+-1/--tlsv1
+              (SSL) Forces curl to use TLS version 1.x when negotiating with a remote  TLS  server.   You
+              can  use  options  --tlsv1.0, --tlsv1.1, and --tlsv1.2 to control the TLS version more pre-
+              cisely (if the SSL backend in use supports such a level of control).
+
+       --tlsv1.0
+              (SSL) Forces curl to use TLS version 1.0 when negotiating with a remote TLS server.  (Added
+              in 7.34.0)
+
+       --tlsv1.1
+              (SSL) Forces curl to use TLS version 1.1 when negotiating with a remote TLS server.  (Added
+              in 7.34.0)
+
+       --tlsv1.2
+              (SSL) Forces curl to use TLS version 1.2 when negotiating with a remote TLS server.  (Added
+              in 7.34.0)
+
+       -2/--sslv2
+              (SSL) Forces curl to use SSL version 2 when negotiating with a remote SSL server.
+
+       -3/--sslv3
+              (SSL) Forces curl to use SSL version 3 when negotiating with a remote SSL server.
+
+       -4/--ipv4
+              If libcurl is capable of resolving an address to multiple IP versions (which it is if it is
+              IPv6-capable), this option tells libcurl to resolve names to IPv4 addresses only.
+
+       -6/--ipv6
+              If libcurl is capable of resolving an address to multiple IP versions (which it is if it is
+              IPv6-capable), this option tells libcurl to resolve names to IPv6 addresses only.
+
+       -#/--progress-bar
+              Make curl display progress information as a progress bar instead of the default statistics.
+
+FILES
+       ~/.curlrc
+              Default config file, see -K/--config for details.
+
+bash-4.1$ curl --sslv3 -ksw %{http_code} https://hub.thankyou.com --proxy http://host:7777 -o /dev/null -m 5                                                                                           
+bash-4.1$ curl --tlsv1.2 -ksw %{http_code} https://hub.thankyou.com --proxy http://host:7777 -o /dev/null -m 5 
+
+
+
+
+
+curl --tlsv1.2 -ksw %{http_code} https://hub.thankyou.com --proxy http://host:7777 -o /dev/null -m                                                                     
