@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>TeamWiki</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#opsmanAlert").modal('show');
+			});
+		</script>
+		<style>
+			h3 {
+				background: yellow;
+				text-align: center;
+			}
+			h2 {
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="opsmanAlert" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h2 class="modal-title" align="center">Ops Manager Access Alert!</h2>
+					</div>
+					<div class="modal-body">
+						<h3>Make sure you have a valid INC or CHG when accessing Ops Manager Consoles.</h3>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Dismiss</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
