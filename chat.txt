@@ -1,0 +1,109 @@
+To create a DataFrame in Python from the MongoDB documents, you can follow these steps:
+
+	1.	Extract the JSON data: Parse the MongoDB documents into Python dictionaries.
+	2.	Load into a DataFrame: Use pandas to create a DataFrame from the list of dictionaries.
+	3.	Transform the DataFrame: Process the DataFrame to include any necessary aggregations or transformations for visualization.
+	4.	Visualize with Streamlit and Plotly: Use Streamlit for the web interface and Plotly for interactive charts.
+
+Here’s a basic example to get you started:
+
+Step 1: Extract JSON Data (Example Document)
+
+Based on your image, the JSON documents seem to look like this:
+
+{
+    "sector": "sector name",
+    "region": "region name",
+    "domain": "domain name",
+    "lob": "lob name",
+    "environment": "environment name",
+    "csi application id": "csi id",
+    "application": "application name",
+    "cluster name": "cluster name",
+    "namespace": "namespace name",
+    "object type": "deployment or other operation types",
+    "object name": "object name",
+    "pods": "N/A",
+    "replicas": "Not applicable",
+    "status": "completed",
+    "operation type": "pod restart (force)",
+    "incident": "incident number",
+    "log date": {
+        "$date": 1724676963600
+    }
+}
+
+Step 2: Create a DataFrame
+
+import pandas as pd
+import json
+from datetime import datetime
+
+# Assuming you have a list of MongoDB documents as dictionaries
+mongo_docs = [
+    {
+        "sector": "sector name",
+        "region": "region name",
+        "domain": "domain name",
+        "lob": "lob name",
+        "environment": "environment name",
+        "csi application id": "csi id",
+        "application": "application name",
+        "cluster name": "cluster name",
+        "namespace": "namespace name",
+        "object type": "deployment",
+        "object name": "object name",
+        "pods": "N/A",
+        "replicas": "Not applicable",
+        "status": "completed",
+        "operation type": "pod restart (force)",
+        "incident": "incident number",
+        "log date": {"$date": 1724676963600}
+    }
+    # Add more documents here
+]
+
+# Convert the "log date" to a readable format
+for doc in mongo_docs:
+    if "$date" in doc["log date"]:
+        timestamp = int(doc["log date"]["$date"]) / 1000.0
+        doc["log date"] = datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
+
+# Load data into a DataFrame
+df = pd.DataFrame(mongo_docs)
+
+# Show the DataFrame
+print(df)
+
+Step 3: Aggregate and Transform Data
+
+You might want to group the data by operation type, object type, or status to get counts:
+
+# Example: Count operations by status
+status_counts = df.groupby('status').size().reset_index(name='counts')
+
+# Example: Count operations by object type
+object_type_counts = df.groupby('object type').size().reset_index(name='counts')
+
+print(status_counts)
+print(object_type_counts)
+
+Step 4: Visualize with Streamlit and Plotly
+
+You can now use Streamlit and Plotly to create charts:
+
+import streamlit as st
+import plotly.express as px
+
+# Streamlit app
+st.title("MongoDB Operations Dashboard")
+
+# Plot the status counts
+fig = px.bar(status_counts, x='status', y='counts', title='Operations by Status')
+st.plotly_chart(fig)
+
+# Plot the object type counts
+fig2 = px.bar(object_type_counts, x='object type', y='counts', title='Operations by Object Type')
+st.plotly_chart(fig2)
+
+This is a basic outline. You’ll need to adapt it to your specific MongoDB data and the analysis you want to perform.
