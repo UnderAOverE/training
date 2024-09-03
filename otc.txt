@@ -1,0 +1,86 @@
+To create a DataFrame in Python from MongoDB documents and use it in Streamlit and Plotly charts, follow these steps:
+
+1. **Install Required Libraries**:
+   Make sure you have the necessary libraries installed. You can install them using pip if you don't have them already:
+
+   ```bash
+   pip install pandas pymongo streamlit plotly
+   ```
+
+2. **Connect to MongoDB and Fetch Data**:
+   Assuming you have a MongoDB connection, use `pymongo` to fetch the data. If you have the data in a local file or variable, adjust accordingly.
+
+3. **Create DataFrame from MongoDB Documents**:
+   Here’s how you can convert the MongoDB documents into a pandas DataFrame. This example assumes you have a `collection` object from `pymongo`.
+
+4. **Parse Nested Fields**:
+   Use pandas to normalize nested JSON structures and create new columns for each level of nesting that you want to analyze.
+
+5. **Use Streamlit and Plotly for Visualization**:
+   Streamlit and Plotly make it easy to create interactive visualizations.
+
+Here’s a Python example to illustrate these steps:
+
+```python
+import pandas as pd
+from pymongo import MongoClient
+import streamlit as st
+import plotly.express as px
+
+# Connect to MongoDB
+client = MongoClient('mongodb://localhost:27017/')
+db = client['your_database']
+collection = db['your_collection']
+
+# Fetch data from MongoDB
+documents = list(collection.find())
+
+# Create DataFrame from MongoDB documents
+df = pd.json_normalize(documents)
+
+# Convert nested operation_details to separate columns
+operation_details_start = pd.json_normalize(df['operation_details.start'])
+operation_details_stop = pd.json_normalize(df['operation_details.stop'])
+
+# Merge the DataFrame
+df = df.drop('operation_details', axis=1)
+df = pd.concat([df, operation_details_start.add_prefix('start_'), operation_details_stop.add_prefix('stop_')], axis=1)
+
+# Streamlit UI for selecting filters
+st.title("MongoDB Data Visualization with Plotly")
+filter_object_type = st.selectbox('Select Object Type', df['object_type'].unique())
+filter_sector = st.selectbox('Select Sector', df['sector'].unique())
+filter_region = st.selectbox('Select Region', df['region'].unique())
+filter_environment = st.selectbox('Select Environment', df['environment'].unique())
+
+# Filter DataFrame based on user selection
+filtered_df = df[
+    (df['object_type'] == filter_object_type) &
+    (df['sector'] == filter_sector) &
+    (df['region'] == filter_region) &
+    (df['environment'] == filter_environment)
+]
+
+# Plot number of operations by object type
+fig = px.bar(filtered_df, x='object_type', y='start_status', color='start_status',
+             title='Number of Operations by Object Type and Status')
+
+# Display the chart in Streamlit
+st.plotly_chart(fig)
+```
+
+### Key Steps:
+
+1. **Connect to MongoDB**: Replace `'your_database'` and `'your_collection'` with your actual MongoDB database and collection names.
+
+2. **Normalize Nested JSON Fields**: `pd.json_normalize()` helps to flatten nested fields for better analysis. This is crucial for nested fields like `operation_details`.
+
+3. **Streamlit UI Components**: Streamlit's `selectbox()` allows users to filter data interactively.
+
+4. **Plotly Charts**: Plotly is used to create interactive charts that are displayed in Streamlit.
+
+### Notes:
+- Replace `start_status` and other field names based on your actual field names in the dataset.
+- If you want to plot more advanced visualizations, explore other Plotly chart types and options.
+
+Feel free to customize the code based on your specific data structure and requirements! If you have any issues or need further modifications, let me know!
